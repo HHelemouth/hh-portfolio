@@ -131,7 +131,7 @@ export default function Proveil() {
           {[
             { label: 'Rôle', value: 'UX Research, Refonte' },
             { label: 'Contexte', value: 'Explore, groupe Intescia' },
-            { label: 'Service', value: 'Documentation (3 personnes)' },
+            { label: 'Service', value: 'Documentalistes (+80 utilisateurs)' },
             { label: 'Type', value: 'Refonte outil interne' },
           ].map((item) => (
             <div key={item.label}>
