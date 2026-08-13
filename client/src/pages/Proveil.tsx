@@ -176,13 +176,6 @@ export default function Proveil() {
             </div>
           ))}
         </div>
-        <button
-          onClick={() => setActive('hassenzahl')}
-          className="text-sm transition-opacity hover:opacity-70"
-          style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif', fontWeight: 500, cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
-        >
-          Comment j'y suis arrivée →
-        </button>
       </div>
 
       {/* Navigation par onglets */}
