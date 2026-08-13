@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import CityManager from "./pages/CityManager";
+import Proveil from "./pages/Proveil";
 import ProjectPage from "./pages/ProjectPage";
 import Contact from './pages/Contact';
 import DesignSystem from './pages/DesignSystem';
@@ -32,6 +33,7 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/projet/city-manager" component={CityManager} />
           <Route path="/projet/design-system" component={DesignSystem} />
+          <Route path="/projet/proveil" component={Proveil} />
           <Route path="/projet/:slug" component={ProjectPage} />
           <Route path="/contact" component={Contact} />
           <Route path="/404" component={NotFound} />
