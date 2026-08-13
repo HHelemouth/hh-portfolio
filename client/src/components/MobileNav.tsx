@@ -11,6 +11,7 @@ const projects = [
   { slug: 'city-manager', label: 'City Manager', year: '2024', isNew: true },
   { slug: 'design-system', label: 'Design System Multi-Produits', year: '2024', isNew: true },
   { slug: 'territoire-360', label: 'Territoire 360', year: '2024' },
+  { slug: 'proveil', label: 'Proveil', year: '2023', isNew: true },
   { slug: 'interprete-de-reves', label: "L'Interprète de Rêves", year: '2025', isNew: true },
   { slug: 'fioulreduc', label: 'Fioulreduc', year: '2023' },
   { slug: 'swaneo', label: 'Swaneo', year: '2023' },
