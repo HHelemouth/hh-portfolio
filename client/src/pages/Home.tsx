@@ -1,225 +1,111 @@
 /*
   Home, Page d'accueil du portfolio
-  Charte : fond blanc, bleu #3B3FD8 en accent, Syne + DM Sans
-  Layout : hero asymétrique (texte gauche / portrait droite) + grille 3 colonnes
-  Principe : les projets respirent, la charte ne les écrase pas
+  Charte : fond blanc, bleu #3B3FD8 en accent, Jost + DM Sans
+  Layout : hero asymétrique + 5 sections narratives (pourquoi j'aime ça, quels projets)
+  Principe : la home raconte une démarche, la grille complète vit sur /projets
 */
 
 import { Link } from 'wouter';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import SEOHead from '@/components/SEOHead';
+import ProjectCard, { useIntersection } from '@/components/ProjectCard';
+import { getProject } from '@/data/projects';
 
 const PORTRAIT_URL = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/portrait_060f4807.jpg';
 
-const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2';
-
-interface ProjectEntry {
-  slug: string;
-  label: string;
-  year: string;
-  tags: string[];
-  isNew?: boolean;
-  thumb?: string;
-  cardSubtitle?: string;
-  color: string;
+interface Chapter {
+  eyebrow: string;
+  title: string;
+  body: string;
+  slugs: string[];
+  extraNote?: string;
 }
 
-const projects: ProjectEntry[] = [
+const chapters: Chapter[] = [
   {
-    slug: 'city-manager',
-    label: 'City Manager',
-    year: '2024',
-    tags: ['Étude de marché', 'Lancement produit', 'SaaS B2B'],
-    isNew: true,
-    thumb: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80',
-    color: '#3B3FD8',
+    eyebrow: 'Ce que j\'aime faire · 01',
+    title: 'Lancement de produit',
+    body: "J'aime lancer des produits sur des marchés pas encore adressés : le moment où il faut poser les bonnes hypothèses avant de coder quoi que ce soit. Chez Explore, j'ai porté 3 lancements de zéro. À chaque fois, même méthode : comprendre le métier, tester le problème avant la solution, itérer vite.",
+    slugs: ['city-manager', 'territoire-360'],
+    extraNote: "Un 3ᵉ lancement, ELM Codata, arrivera bientôt en étude de cas.",
   },
   {
-    slug: 'design-system',
-    label: 'Design System Multi-Produits',
-    year: '2024',
-    tags: ['Design System', 'Figma', 'Tokens'],
-    cardSubtitle: 'Multi-Produits · Figma',
-    color: '#3B3FD8',
+    eyebrow: 'Ce que j\'aime faire · 02',
+    title: "Optimisation de l'expérience utilisateur",
+    body: "Un outil qui existe déjà se regarde différemment. Il faut d'abord mesurer ce qui coince avant de proposer quoi que ce soit. Sur Proveil et Fioulreduc, j'ai commencé par du terrain : tests utilisateurs, entretiens, mesure du temps passé sur chaque tâche. La refonte vient après, jamais avant.",
+    slugs: ['proveil', 'fioulreduc'],
   },
   {
-    slug: 'territoire-360',
-    label: 'Territoire 360',
-    year: '2024',
-    tags: ['Lancement produit', 'UX', 'UI'],
-    thumb: `${CDN}/territoire_360_66b1fb96.png`,
-    color: '#1E3A5F',
+    eyebrow: 'Ce que j\'aime faire · 03',
+    title: 'IA appliquée au produit',
+    body: "L'IA m'intéresse comme outil de réflexion, pas comme argument marketing. Chez Explore, j'ai exploré la recherche en langage naturel sur un POC dont les fondations ont été reprises en production sur OneSearch. En parallèle, j'ai construit seule L'Interprète de Rêves, de l'idée à la mise en ligne, pour comprendre de l'intérieur ce qu'implique le design avec l'IA plutôt que pour elle.",
+    slugs: ['interprete-de-reves'],
   },
   {
-    slug: 'proveil',
-    label: 'Proveil',
-    year: '2023',
-    tags: ['UX Research', 'Test Hassenzahl', 'Refonte'],
-    cardSubtitle: 'UX Research · Refonte',
-    color: '#0F4C81',
+    eyebrow: 'Ce que j\'aime faire · 04',
+    title: 'Figma & Design System',
+    body: "Sur 5 produits et plus de 40 000 utilisateurs, je suis devenue la référence Figma du groupe sans que ce soit écrit sur ma fiche de poste. Tokens, composants partagés, gouvernance multi-produits : je préfère un système qui tient dans le temps à une bibliothèque qu'on retape à chaque projet.",
+    slugs: ['design-system'],
   },
   {
-    slug: 'interprete-de-reves',
-    label: "L'Interprète de Rêves",
-    year: '2025',
-    isNew: true,
-    tags: ['Product Design', 'Développement', 'IA', 'Product Building'],
-    cardSubtitle: 'IA · Product Building',
-    color: '#8B4513',
-  },
-  {
-    slug: 'fioulreduc',
-    label: 'Fioulreduc',
-    year: '2023',
-    tags: ['UX', 'UI', 'Conversion'],
-    thumb: `${CDN}/fioulreduc_5c6f18e4.jpg`,
-    color: '#1A4FA0',
-  },
-  {
-    slug: 'swaneo',
-    label: 'Swaneo',
-    year: '2023',
-    tags: ['Identité visuelle', 'Logo'],
-    thumb: `${CDN}/swaneo_5987b29a.jpg`,
-    color: '#E07B00',
-  },
-  {
-    slug: 'qg-media-libre',
-    label: 'QG — Média Libre',
-    year: '2020',
-    tags: ['Identité visuelle', 'Logo'],
-    thumb: `${CDN}/qg_media_libre_e53b2941.png`,
-    color: '#C0392B',
-  },
-  {
-    slug: 'appvizer',
-    label: 'Appvizer',
-    year: '2020',
-    tags: ['Identité visuelle', 'Logo'],
-    thumb: `${CDN}/appvizer_0492eb6b.png`,
-    color: '#00B4A0',
-  },
-  {
-    slug: 'uptilab',
-    label: 'Uptilab',
-    year: '2017',
-    tags: ['Direction artistique', 'Print', 'Web'],
-    thumb: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/uptilab_site_9427fe92.jpg',
-    color: '#1B3A52',
-  },
-  {
-    slug: 'elements',
-    label: 'Elements',
-    year: '2020',
-    tags: ['Identité visuelle', 'Logo', 'Direction artistique'],
-    thumb: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028937907/jeldpRkzsskdmBoA.png',
-    color: '#2D5A3D',
-  },
-  {
-    slug: 'tao',
-    label: 'TAO',
-    year: '2019',
-    tags: ['Direction artistique', 'Identité visuelle', 'Logo'],
-    cardSubtitle: 'Direction Artistique · Identité visuelle',
-    color: '#2BD081',
-  },
-  {
-    slug: 'illustrations',
-    label: 'Illustrations, Cyanotype',
-    year: '2020',
-    tags: ['Illustration', 'Art'],
-    thumb: `${CDN}/illustrations_cyanotype_67bc2b38.jpg`,
-    color: '#2C3E50',
+    eyebrow: 'Ce que j\'aime faire · 05',
+    title: 'Direction artistique',
+    body: "J'aime accompagner des structures qui démarrent et qui ont besoin d'une identité pour exister visuellement. À chaque fois, construire une image de marque à partir de rien, pour des entreprises qui grandissent vite.",
+    slugs: ['swaneo', 'tao', 'elements', 'qg-media-libre', 'uptilab', 'illustrations'],
   },
 ];
 
-function useIntersection(ref: React.RefObject<Element | null>) {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    if (!ref.current) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, [ref]);
-  return visible;
-}
-
-function ProjectCard({ project, delay }: { project: typeof projects[0]; delay: number }) {
+function ChapterSection({ chapter, index }: { chapter: Chapter; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const visible = useIntersection(ref as React.RefObject<Element>);
+  const chapterProjects = chapter.slugs.map(getProject).filter(Boolean) as NonNullable<ReturnType<typeof getProject>>[];
 
   return (
-    <div
+    <section
       ref={ref}
-      className={`fade-up fade-up-delay-${delay}`}
-      style={{ opacity: visible ? 1 : 0, animationPlayState: visible ? 'running' : 'paused' }}
+      className="px-5 sm:px-10 py-10 sm:py-14"
+      style={{
+        borderTop: index === 0 ? 'none' : '1px solid oklch(0.91 0.02 264)',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : 'translateY(16px)',
+        transition: 'opacity 0.6s ease, transform 0.6s ease',
+      }}
     >
-      <Link href={`/projet/${project.slug}`}>
-        <div className="project-card group">
-          {project.thumb ? (
-            <img
-              src={project.thumb}
-              alt={project.label}
-              loading="lazy"
-            />
-          ) : (
-            <div
-              style={{
-                width: '100%',
-                height: '100%',
-                backgroundColor: project.color,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'column',
-                gap: '0.5rem',
-              }}
-            >
-              <span style={{ color: 'rgba(255,255,255,0.9)', fontFamily: 'Jost, sans-serif', fontWeight: 700, fontSize: '1rem', letterSpacing: '-0.01em', textAlign: 'center', padding: '0 1rem' }}>{project.label}</span>
-              {project.cardSubtitle && (
-                <span style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'DM Sans, sans-serif', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', textAlign: 'center', padding: '0 1rem' }}>{project.cardSubtitle}</span>
-              )}
-            </div>
-          )}
-          <div className="overlay">
-            <span className="overlay-title">{project.label}</span>
-            <div className="overlay-tags">
-              {project.tags.map((t) => (
-                <span key={t} className="overlay-tag">{t}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="mt-2.5 px-0.5">
+      <div className="max-w-5xl">
+        <p
+          className="text-xs font-medium tracking-[0.18em] uppercase mb-3"
+          style={{ color: 'oklch(0.45 0.22 264)', fontFamily: 'DM Sans, sans-serif' }}
+        >
+          {chapter.eyebrow}
+        </p>
+        <h2
+          className="text-xl sm:text-3xl font-bold mb-4"
+          style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)', letterSpacing: '-0.01em' }}
+        >
+          {chapter.title}
+        </h2>
+        <p
+          className="text-sm sm:text-base leading-relaxed max-w-2xl mb-3"
+          style={{ color: 'oklch(0.35 0.03 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
+        >
+          {chapter.body}
+        </p>
+        {chapter.extraNote && (
           <p
-            className="text-sm font-medium leading-tight"
-            style={{ fontFamily: 'DM Sans, sans-serif', color: 'oklch(0.13 0.02 264)' }}
+            className="text-xs italic mb-6"
+            style={{ color: 'oklch(0.5 0.04 264)', fontFamily: 'DM Sans, sans-serif' }}
           >
-            {project.label}
-            {project.isNew && (
-              <span
-                className="ml-2 text-xs px-1.5 py-0.5 rounded-sm"
-                style={{
-                  backgroundColor: 'oklch(0.45 0.22 264)',
-                  color: '#fff',
-                  fontSize: '0.6rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
-                  verticalAlign: 'middle',
-                }}
-              >
-                new
-              </span>
-            )}
+            {chapter.extraNote}
           </p>
+        )}
 
+        <div className={`grid grid-cols-2 ${chapterProjects.length > 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-3'} gap-x-3 sm:gap-x-6 gap-y-7 sm:gap-y-10 mt-6`}>
+          {chapterProjects.map((p, i) => (
+            <ProjectCard key={p.slug} project={p} delay={Math.min(i + 1, 6)} />
+          ))}
         </div>
-      </Link>
-    </div>
+      </div>
+    </section>
   );
 }
 
@@ -243,20 +129,13 @@ export default function Home() {
         }}
       >
         <div className="flex flex-col sm:flex-row sm:items-start sm:gap-12 max-w-3xl">
-          {/* Portrait mobile — au-dessus du texte */}
+          {/* Portrait mobile */}
           <div className="flex sm:hidden mb-5">
             <div
               className="w-20 h-20 rounded-full overflow-hidden"
-              style={{
-                border: '2px solid oklch(0.45 0.22 264)',
-                boxShadow: '4px 4px 0 oklch(0.94 0.04 264)',
-              }}
+              style={{ border: '2px solid oklch(0.45 0.22 264)', boxShadow: '4px 4px 0 oklch(0.94 0.04 264)' }}
             >
-              <img
-                src={PORTRAIT_URL}
-                alt="Helena Hadjitournos"
-                className="w-full h-full object-cover"
-              />
+              <img src={PORTRAIT_URL} alt="Helena Hadjitournos" className="w-full h-full object-cover" />
             </div>
           </div>
 
@@ -278,7 +157,7 @@ export default function Home() {
               className="text-sm sm:text-base leading-relaxed mb-5 max-w-sm"
               style={{ color: 'oklch(0.35 0.03 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
             >
-              Product Designer senior, spécialisée en discovery et design systems pour des produits SaaS B2B — avec une pratique de direction artistique en parallèle depuis 2019. Deux façons de résoudre le même problème : poser la bonne stratégie, et lui donner une forme qui donne envie.
+              Product Designer senior, spécialisée en discovery et design systems pour des produits SaaS B2B. Direction artistique en parallèle depuis 2019 : deux façons de résoudre le même problème, poser la bonne stratégie et lui donner une forme qui donne envie.
             </p>
             <div className="flex gap-2 flex-wrap">
               <span className="mission-tag">UX Research</span>
@@ -287,18 +166,20 @@ export default function Home() {
               <span className="mission-tag">Design System</span>
               <span className="mission-tag">Direction Artistique</span>
             </div>
-            <div className="mt-5">
+            <div className="mt-5 flex gap-3 flex-wrap items-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 transition-all"
-                style={{
-                  backgroundColor: 'oklch(0.45 0.22 264)',
-                  color: '#fff',
-                  fontFamily: 'DM Sans, sans-serif',
-                  borderRadius: '2px',
-                }}
+                style={{ backgroundColor: 'oklch(0.45 0.22 264)', color: '#fff', fontFamily: 'DM Sans, sans-serif', borderRadius: '2px' }}
               >
                 Me contacter
+              </Link>
+              <Link
+                href="/projets"
+                className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 transition-all"
+                style={{ color: 'oklch(0.45 0.22 264)', fontFamily: 'DM Sans, sans-serif', border: '1px solid oklch(0.45 0.22 264)', borderRadius: '2px' }}
+              >
+                Voir tous les projets
               </Link>
             </div>
           </div>
@@ -307,59 +188,27 @@ export default function Home() {
           <div className="flex-shrink-0 hidden sm:block">
             <div
               className="w-36 h-36 rounded-full overflow-hidden"
-              style={{
-                border: '3px solid oklch(0.45 0.22 264)',
-                boxShadow: '6px 6px 0 oklch(0.94 0.04 264)',
-              }}
+              style={{ border: '3px solid oklch(0.45 0.22 264)', boxShadow: '6px 6px 0 oklch(0.94 0.04 264)' }}
             >
-              <img
-                src={PORTRAIT_URL}
-                alt="Helena Hadjitournos"
-                className="w-full h-full object-cover"
-              />
+              <img src={PORTRAIT_URL} alt="Helena Hadjitournos" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── SÉPARATEUR ── */}
-      <div className="px-5 sm:px-10 mb-8 sm:mb-10">
-        <div
-          className="h-px w-full"
-          style={{ backgroundColor: 'oklch(0.91 0.02 264)' }}
-        />
-      </div>
-
-      {/* ── GRILLE PROJETS ── */}
-      <section className="px-5 sm:px-10 pb-20">
-        <h2
-          className="section-title text-xs uppercase mb-6 sm:mb-8"
-          style={{ color: 'oklch(0.5 0.04 264)', fontFamily: 'Jost, sans-serif', fontWeight: 500, letterSpacing: '0.18em' }}
-        >
-          Projets sélectionnés
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 sm:gap-x-6 gap-y-7 sm:gap-y-10">
-          {projects.map((p, i) => (
-            <ProjectCard key={p.slug} project={p} delay={Math.min((i % 3) + 1, 6)} />
-          ))}
-        </div>
-      </section>
+      {/* ── SECTIONS NARRATIVES ── */}
+      {chapters.map((chapter, i) => (
+        <ChapterSection key={chapter.title} chapter={chapter} index={i} />
+      ))}
 
       {/* ── FOOTER ── */}
       <footer
         className="px-5 sm:px-10 py-6 sm:py-8 text-xs"
-        style={{
-          borderTop: '1px solid oklch(0.91 0.02 264)',
-          color: 'oklch(0.6 0.04 264)',
-          fontFamily: 'DM Sans, sans-serif',
-        }}
+        style={{ borderTop: '1px solid oklch(0.91 0.02 264)', color: 'oklch(0.6 0.04 264)', fontFamily: 'DM Sans, sans-serif' }}
       >
         <div className="flex justify-between items-center">
           <span>© 2024 Helena Hadjitournos</span>
-          <a
-            href="mailto:hhadjitournos@gmail.com"
-            style={{ color: 'oklch(0.45 0.22 264)' }}
-          >
+          <a href="mailto:hhadjitournos@gmail.com" style={{ color: 'oklch(0.45 0.22 264)' }}>
             hhadjitournos@gmail.com
           </a>
         </div>

@@ -5,6 +5,7 @@ import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Projets from "./pages/Projets";
 import CityManager from "./pages/CityManager";
 import Proveil from "./pages/Proveil";
 import ProjectPage from "./pages/ProjectPage";
@@ -33,6 +34,7 @@ function Router() {
       <main className="flex-1 w-full min-w-0 md:ml-52 pt-14 md:pt-0 overflow-x-hidden">
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/projets" component={Projets} />
           <Route path="/projet/city-manager" component={CityManager} />
           <Route path="/projet/design-system" component={DesignSystem} />
           <Route path="/projet/proveil" component={Proveil} />

@@ -79,6 +79,19 @@ export default function MobileNav() {
             >
               Work
             </p>
+            <Link
+              href="/projets"
+              onClick={() => setOpen(false)}
+              className="block text-sm mb-4 py-2 px-3 -mx-3 rounded-sm"
+              style={{
+                fontFamily: 'DM Sans, sans-serif',
+                color: location === '/projets' ? 'oklch(0.45 0.22 264)' : 'oklch(0.4 0.03 264)',
+                fontWeight: location === '/projets' ? 500 : 400,
+                backgroundColor: location === '/projets' ? 'oklch(0.94 0.04 264)' : 'transparent',
+              }}
+            >
+              Tous les projets ↗
+            </Link>
             <ul className="space-y-1 mb-8">
               {projects.map((p) => (
                 <li key={p.slug}>

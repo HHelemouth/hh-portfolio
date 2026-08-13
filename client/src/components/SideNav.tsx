@@ -46,6 +46,19 @@ export default function SideNav() {
         </span>
       </div>
 
+      <Link
+        href="/projets"
+        className="text-sm mb-3 py-1.5 px-2 -mx-2 rounded-sm transition-colors"
+        style={{
+          fontFamily: 'DM Sans, sans-serif',
+          color: location === '/projets' ? 'oklch(0.45 0.22 264)' : 'oklch(0.4 0.03 264)',
+          fontWeight: location === '/projets' ? 500 : 400,
+          backgroundColor: location === '/projets' ? 'oklch(0.94 0.04 264)' : 'transparent',
+        }}
+      >
+        Tous les projets ↗
+      </Link>
+
       {/* Liste des projets */}
       <ul className="flex flex-col gap-1 flex-1 overflow-y-auto">
         {projects.map((p) => {
