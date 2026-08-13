@@ -278,14 +278,14 @@ export default function Home() {
               className="text-sm sm:text-base leading-relaxed mb-5 max-w-sm"
               style={{ color: 'oklch(0.35 0.03 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
             >
-              Je conçois des produits digitaux centrés sur l'humain, de la discovery à l'interface. 
-              Spécialisée en UX produit, j'interviens en amont pour définir les bons problèmes avant de les résoudre.
+              Product Designer senior, spécialisée en discovery et design systems pour des produits SaaS B2B — avec une pratique de direction artistique en parallèle depuis 2019. Deux façons de résoudre le même problème : poser la bonne stratégie, et lui donner une forme qui donne envie.
             </p>
             <div className="flex gap-2 flex-wrap">
               <span className="mission-tag">UX Research</span>
               <span className="mission-tag">Product Design</span>
               <span className="mission-tag">UI Design</span>
               <span className="mission-tag">Design System</span>
+              <span className="mission-tag">Direction Artistique</span>
             </div>
             <div className="mt-5">
               <Link
