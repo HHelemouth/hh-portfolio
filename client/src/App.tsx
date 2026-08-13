@@ -13,7 +13,7 @@ import SideNav from './components/SideNav';
 import MobileNav from './components/MobileNav';
 
 // Base path du site sur GitHub Pages : https://hhelemouth.github.io/hh-design-portfolio/
-const BASE_PATH = '/hh-design-portfolio';
+const BASE_PATH = '/hh-portfolio';
 
 function Router() {
   return (
