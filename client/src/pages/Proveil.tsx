@@ -245,9 +245,9 @@ export default function Proveil() {
             {bodyText("En effet, les utilisateurs multiplient les outils pour arriver à leurs fins sur Proveil : partage d'informations sur Teams, recherches externes sur le navigateur, prises de note sur un calepin personnel et une capture d'écran informelle. Or, les usages peuvent et devraient se faire directement sur l'interface de l'outil pour faciliter leur organisation de travail.")}
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
-              <CaseImage src="/proveil/verbatim-claire.png" alt="Verbatim de Claire : il n'y a pas de langage universel, c'est sa popotte interne" />
-              <CaseImage src="/proveil/verbatim-audrey-2.png" alt="Verbatim d'Audrey : ce n'est pas intuitif" />
-              <CaseImage src="/proveil/verbatim-audrey-1.png" alt="Verbatim d'Audrey : j'aime pas le faire, je trouve ça pénible" />
+              <CaseImage src={`${import.meta.env.BASE_URL}proveil/verbatim-claire.png`} alt="Verbatim de Claire : il n'y a pas de langage universel, c'est sa popotte interne" />
+              <CaseImage src={`${import.meta.env.BASE_URL}proveil/verbatim-audrey-2.png`} alt="Verbatim d'Audrey : ce n'est pas intuitif" />
+              <CaseImage src={`${import.meta.env.BASE_URL}proveil/verbatim-audrey-1.png`} alt="Verbatim d'Audrey : j'aime pas le faire, je trouve ça pénible" />
             </div>
 
             {bodyText("Des décisions arbitraires sont prises dans l'encodage de l'information par les utilisateurs. Certains documentalistes adoptent une approche de travail très individuelle sans concertation avec le reste de l'équipe. En outre, Proveil génère une surabondance de fenêtres d'affichage, entraînant une saturation d'informations qui requiert une concentration maximale de la part des utilisateurs afin d'éviter toute confusion.")}
@@ -265,12 +265,12 @@ export default function Proveil() {
             {bodyText("Grâce à cette collaboration, nous avons résolu le problème des affichages simultanés et de la pollution visuelle de Proveil, faisant ainsi place à des fonctionnalités plus pertinentes et essentielles pour améliorer leur interface.")}
 
             <CaseImage
-              src="/proveil/atelier-co-conception.jpg"
+              src={`${import.meta.env.BASE_URL}proveil/atelier-co-conception.jpg`}
               alt="Atelier de co-conception avec les documentalistes autour d'une table"
               caption="Atelier de co-conception avec l'équipe documentation, autour des besoins et des irritants relevés"
             />
             <CaseImage
-              src="/proveil/ui-diffusion-presse.png"
+              src={`${import.meta.env.BASE_URL}proveil/ui-diffusion-presse.png`}
               alt="Interface ancien Proveil annotée, éléments superflus et améliorables entourés en jaune"
               caption="Exemple d'indicateurs d'éléments superflus et améliorables identifiés en atelier"
             />
@@ -283,8 +283,8 @@ export default function Proveil() {
             {bodyText("À droite, sur un écran secondaire disponible, les utilisateurs peuvent dédoubler à l'aide d'un comparateur pour repérer immédiatement des similitudes entre les fiches déjà livrées sur le même sujet. Cet écran aide également pour les approbations afin de lier deux avis entre eux. Les prototypes ont été soumis à des tests d'utilisation, confirmant la convivialité de cette nouvelle proposition.")}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-              <CaseImage src="/proveil/ui-fiches-liees.png" alt="Écran d'encodage et de consultation avec la liste tiroir" caption="Écran d'encodage et de consultation avec la liste tiroir" />
-              <CaseImage src="/proveil/ui-fiche-approbation.png" alt="Écran comparateur pour dédoubler et lier les approbations" caption="Écran comparateur pour dédoubler et lier les approbations" />
+              <CaseImage src={`${import.meta.env.BASE_URL}proveil/ui-fiches-liees.png`} alt="Écran d'encodage et de consultation avec la liste tiroir" caption="Écran d'encodage et de consultation avec la liste tiroir" />
+              <CaseImage src={`${import.meta.env.BASE_URL}proveil/ui-fiche-approbation.png`} alt="Écran comparateur pour dédoubler et lier les approbations" caption="Écran comparateur pour dédoubler et lier les approbations" />
             </div>
           </section>
         )}
@@ -296,7 +296,7 @@ export default function Proveil() {
             {bodyText("Après le développement de l'interface et quelques retours d'usage, les chiffres parlent d'eux-mêmes. Les utilisateurs déclarent effectivement un temps moyen gagné surtout sur les approbations (le poste le plus lent à traiter), et les autres tâches sont également réalisées plus rapidement.")}
 
             <CaseImage
-              src="/proveil/efficacite-comparatif.png"
+              src={`${import.meta.env.BASE_URL}proveil/efficacite-comparatif.png`}
               alt="Analyse comparative du temps de traitement des tâches, ancien vs nouveau Proveil"
               caption="Analyse quantitative du temps de réalisation des tâches : ancien système vs nouvelle version Proveil Web"
             />
