@@ -23,32 +23,32 @@ interface Chapter {
 
 const chapters: Chapter[] = [
   {
-    eyebrow: 'Ce que j\'aime faire · 01',
+    eyebrow: '01 : Partir de zéro',
     title: 'Lancement de produit',
     body: "J'aime lancer des produits sur des marchés pas encore adressés : le moment où il faut poser les bonnes hypothèses avant de coder quoi que ce soit. Chez Explore, j'ai porté 3 lancements de zéro. À chaque fois, même méthode : comprendre le métier, tester le problème avant la solution, itérer vite.",
     slugs: ['city-manager', 'territoire-360'],
     extraNote: "Un 3ᵉ lancement, ELM Codata, arrivera bientôt en étude de cas.",
   },
   {
-    eyebrow: 'Ce que j\'aime faire · 02',
+    eyebrow: '02 : Améliorer l\'existant',
     title: "Optimisation de l'expérience utilisateur",
     body: "Un outil qui existe déjà se regarde différemment. Il faut d'abord mesurer ce qui coince avant de proposer quoi que ce soit. Sur Proveil et Fioulreduc, j'ai commencé par du terrain : tests utilisateurs, entretiens, mesure du temps passé sur chaque tâche. La refonte vient après, jamais avant.",
     slugs: ['proveil', 'fioulreduc'],
   },
   {
-    eyebrow: 'Ce que j\'aime faire · 03',
+    eyebrow: '03 : Vivre avec son temps',
     title: 'IA appliquée au produit',
     body: "L'IA m'intéresse comme outil de réflexion, pas comme argument marketing. Chez Explore, j'ai exploré la recherche en langage naturel sur un POC dont les fondations ont été reprises en production sur OneSearch. En parallèle, j'ai construit seule L'Interprète de Rêves, de l'idée à la mise en ligne, pour comprendre de l'intérieur ce qu'implique le design avec l'IA plutôt que pour elle.",
     slugs: ['interprete-de-reves'],
   },
   {
-    eyebrow: 'Ce que j\'aime faire · 04',
+    eyebrow: '04 : Organiser et structurer',
     title: 'Figma & Design System',
     body: "Sur 5 produits et plus de 40 000 utilisateurs, je suis devenue la référence Figma du groupe sans que ce soit écrit sur ma fiche de poste. Tokens, composants partagés, gouvernance multi-produits : je préfère un système qui tient dans le temps à une bibliothèque qu'on retape à chaque projet.",
     slugs: ['design-system'],
   },
   {
-    eyebrow: 'Ce que j\'aime faire · 05',
+    eyebrow: '05 : Chercher des concepts',
     title: 'Direction artistique',
     body: "J'aime accompagner des structures qui démarrent et qui ont besoin d'une identité pour exister visuellement. À chaque fois, construire une image de marque à partir de rien, pour des entreprises qui grandissent vite.",
     slugs: ['swaneo', 'tao', 'elements', 'qg-media-libre', 'uptilab', 'illustrations'],
