@@ -46,7 +46,7 @@ const projects = [
     year: '2023',
     isNew: true,
     tags: ['UX Research', 'Test Hassenzahl', 'Refonte'],
-    thumb: '/proveil/ui-fiche-approbation.png',
+    thumb: `${import.meta.env.BASE_URL}proveil/ui-fiche-approbation.png`,
     color: '#0F4C81',
   },
   {
