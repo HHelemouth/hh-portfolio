@@ -7,7 +7,7 @@ interface SEOHeadProps {
   canonicalPath?: string;
 }
 
-const BASE_URL = 'https://hhelemouth.github.io/hh-design-portfolio';
+const BASE_URL = 'https://hhelemouth.github.io/hh-portfolio';
 const DEFAULT_IMAGE = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/portrait_060f4807.jpg';
 
 function setMeta(property: string, content: string, useProperty = false) {
