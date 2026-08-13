@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Décodage de la redirection SPA GitHub Pages (voir public/404.html) -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+    <!-- SEO Principal -->
+    <title>Helena Hadjitournos — Product Designer UX/UI, Région nantaise</title>
+    <meta name="description" content="Portfolio de Helena Hadjitournos, Product Designer UX/UI en région nantaise. Spécialisée en discovery, design system et conception de produits digitaux B2B et B2C." />
+    <meta name="keywords" content="Product Designer, UX Designer, UI Designer, Design System, Portfolio, Nantes, UX Research, Figma, B2B, SaaS" />
+    <meta name="author" content="Helena Hadjitournos" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hhelemouth.github.io/hh-design-portfolio/" />
+
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hhelemouth.github.io/hh-design-portfolio/" />
+    <meta property="og:title" content="Helena Hadjitournos — Product Designer UX/UI" />
+    <meta property="og:description" content="Portfolio de Helena Hadjitournos, Product Designer UX/UI en région nantaise. Spécialisée en discovery, design system et conception de produits digitaux B2B et B2C." />
+    <meta property="og:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/portrait_060f4807.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Helena Hadjitournos — Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Helena Hadjitournos — Product Designer UX/UI" />
+    <meta name="twitter:description" content="Portfolio de Helena Hadjitournos, Product Designer UX/UI en région nantaise. Spécialisée en discovery, design system et conception de produits digitaux B2B et B2C." />
+    <meta name="twitter:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/portrait_060f4807.jpg" />
+
+    <!-- Données structurées JSON-LD (schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Helena Hadjitournos",
+      "jobTitle": "Product Designer UX/UI",
+      "url": "https://hhelemouth.github.io/hh-design-portfolio/",
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/portrait_060f4807.jpg",
+      "email": "hhadjitournos@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Pays de la Loire",
+        "addressCountry": "FR"
+      },
+      "sameAs": [
+        "https://hh-design.myportfolio.com/"
+      ],
+      "knowsAbout": ["UX Design", "UI Design", "Product Design", "Design System", "UX Research", "Figma", "SaaS B2B"],
+      "description": "Product Designer UX/UI avec plus de 8 ans d'expérience, spécialisée en discovery, design system et conception de produits digitaux B2B et B2C."
+    }
+    </script>
+
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Helena Hadjitournos — Portfolio</title>
+    <!--
+      Redirection pour le routage côté client sur GitHub Pages.
+      GitHub Pages ne sait servir que des fichiers réels : quand quelqu'un
+      arrive directement sur /projet/xxx (lien direct ou rafraîchissement),
+      GitHub sert ce 404.html, qui redirige vers index.html en encodant
+      le chemin d'origine dans le paramètre de requête.
+    -->
+    <script>
+      var segmentCount = 1; // correspond au nombre de segments dans "base" (/hh-design-portfolio/)
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
