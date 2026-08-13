@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import DesignSystem from './pages/DesignSystem';
 import SideNav from './components/SideNav';
 import MobileNav from './components/MobileNav';
+import ScrollToTop from './components/ScrollToTop';
 
 // Base path du site sur GitHub Pages : https://hhelemouth.github.io/hh-design-portfolio/
 const BASE_PATH = '/hh-portfolio';
@@ -19,6 +20,7 @@ const BASE_PATH = '/hh-portfolio';
 function Router() {
   return (
     <div className="flex min-h-screen overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
+      <ScrollToTop />
       {/* Navigation latérale fixe — desktop */}
       <div className="hidden md:block">
         <SideNav />
