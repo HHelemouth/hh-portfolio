@@ -146,6 +146,45 @@ export default function Proveil() {
         </div>
       </header>
 
+      {/* Bandeau résultats — teaser en tête, avant même le détail de la démarche */}
+      <div
+        className="px-5 py-6 sm:px-8 sm:py-8 md:px-16"
+        style={{ backgroundColor: 'oklch(0.97 0.015 264)', borderBottom: '1px solid oklch(0.91 0.02 264)' }}
+      >
+        <p
+          className="text-xs uppercase tracking-widest mb-4"
+          style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif', fontWeight: 600 }}
+        >
+          Le résultat, en un coup d'œil
+        </p>
+        <div className="flex flex-wrap gap-x-8 gap-y-4 sm:gap-x-12 mb-4">
+          {[
+            { value: '−37%', label: 'Temps de traitement moyen' },
+            { value: '×1,79', label: 'Fiches traitées à temps égal' },
+            { value: '+80', label: 'Utilisateurs impactés' },
+          ].map((m) => (
+            <div key={m.label}>
+              <span
+                className="block text-2xl sm:text-3xl"
+                style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 800, color: 'oklch(0.42 0.22 264)' }}
+              >
+                {m.value}
+              </span>
+              <span className="text-xs" style={{ color: 'oklch(0.4 0.06 264)', fontFamily: 'DM Sans, sans-serif' }}>
+                {m.label}
+              </span>
+            </div>
+          ))}
+        </div>
+        <button
+          onClick={() => setActive('hassenzahl')}
+          className="text-sm transition-opacity hover:opacity-70"
+          style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif', fontWeight: 500, cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
+        >
+          Comment j'y suis arrivée →
+        </button>
+      </div>
+
       {/* Navigation par onglets */}
       <nav
         className="sticky top-14 md:top-0 z-40 px-0 sm:px-8 md:px-16 overflow-x-auto"
