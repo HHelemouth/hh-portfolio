@@ -13,7 +13,18 @@ const PORTRAIT_URL = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/i
 
 const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2';
 
-const projects = [
+interface ProjectEntry {
+  slug: string;
+  label: string;
+  year: string;
+  tags: string[];
+  isNew?: boolean;
+  thumb?: string;
+  cardSubtitle?: string;
+  color: string;
+}
+
+const projects: ProjectEntry[] = [
   {
     slug: 'city-manager',
     label: 'City Manager',
@@ -28,7 +39,7 @@ const projects = [
     label: 'Design System Multi-Produits',
     year: '2024',
     tags: ['Design System', 'Figma', 'Tokens'],
-    thumb: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/design-system-thumb_12c23e67.png',
+    cardSubtitle: 'Multi-Produits · Figma',
     color: '#3B3FD8',
   },
   {
@@ -44,7 +55,7 @@ const projects = [
     label: 'Proveil',
     year: '2023',
     tags: ['UX Research', 'Test Hassenzahl', 'Refonte'],
-    thumb: `${import.meta.env.BASE_URL}proveil/ui-fiche-approbation.png`,
+    cardSubtitle: 'UX Research · Refonte',
     color: '#0F4C81',
   },
   {
@@ -53,7 +64,7 @@ const projects = [
     year: '2025',
     isNew: true,
     tags: ['Product Design', 'Développement', 'IA', 'Product Building'],
-    thumb: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/reves_hero_29ad58f1.webp',
+    cardSubtitle: 'IA · Product Building',
     color: '#8B4513',
   },
   {
@@ -109,7 +120,7 @@ const projects = [
     label: 'TAO',
     year: '2019',
     tags: ['Direction artistique', 'Identité visuelle', 'Logo'],
-    thumb: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028937907/fMeGzhgPiAzOUaru.webp',
+    cardSubtitle: 'Direction Artistique · Identité visuelle',
     color: '#2BD081',
   },
   {
@@ -159,7 +170,7 @@ function ProjectCard({ project, delay }: { project: typeof projects[0]; delay: n
               style={{
                 width: '100%',
                 height: '100%',
-                backgroundColor: '#3B3FD8',
+                backgroundColor: project.color,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -167,8 +178,10 @@ function ProjectCard({ project, delay }: { project: typeof projects[0]; delay: n
                 gap: '0.5rem',
               }}
             >
-              <span style={{ color: 'rgba(255,255,255,0.9)', fontFamily: 'Jost, sans-serif', fontWeight: 700, fontSize: '1rem', letterSpacing: '-0.01em', textAlign: 'center', padding: '0 1rem' }}>Design System</span>
-              <span style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'DM Sans, sans-serif', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Multi-Produits · Figma</span>
+              <span style={{ color: 'rgba(255,255,255,0.9)', fontFamily: 'Jost, sans-serif', fontWeight: 700, fontSize: '1rem', letterSpacing: '-0.01em', textAlign: 'center', padding: '0 1rem' }}>{project.label}</span>
+              {project.cardSubtitle && (
+                <span style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'DM Sans, sans-serif', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', textAlign: 'center', padding: '0 1rem' }}>{project.cardSubtitle}</span>
+              )}
             </div>
           )}
           <div className="overlay">
