@@ -193,8 +193,8 @@ export default function ElmCodata() {
 
             <CaseImage
               src={`${import.meta.env.BASE_URL}elm-codata/mon-compte.jpg`}
-              alt="Espace Mon compte avec navigation latérale : commandes, informations personnelles, utilisateurs, facturation"
-              caption="Espace compte : pensé dès le départ pour un usage multi-utilisateurs, essentiel pour les réseaux de franchise qui commandent en volume"
+              alt="Espace Mon compte, onglet Mes commandes ELM avec liste des études passées et statut PDF"
+              caption="Onglet « Mes commandes ELM » : historique des études, avec le statut du PDF (en cours ou disponible), consultable par toute l'équipe côté franchise"
             />
 
             {bodyText("Un point de vigilance identifié tôt : à quel moment demander la création de compte sans frustrer l'utilisateur qui n'a pas encore décidé de s'engager ? Le choix retenu était de rendre la connexion accessible via la barre de navigation, au bon vouloir de l'utilisateur, plutôt que de l'imposer en barrage avant même d'avoir vu la valeur de l'outil.")}
