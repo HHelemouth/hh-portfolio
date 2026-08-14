@@ -674,8 +674,8 @@ const projects: Record<string, Project> = {
       },
       {
         type: 'image',
-        image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028937907/vtcIJFvsQaElFUax.png',
-        imageAlt: 'Logo Elements déclinaison fond vert forêt avec lignes dorées',
+        image: `${import.meta.env.BASE_URL}elements/logo-vert.jpg`,
+        imageAlt: 'Logo Elements déclinaison fond vert forêt',
         caption: 'Déclinaison principale du logo sur fond vert forêt, avec les lignes dorées qui évoquent les stries du bois et les découpes du métal',
       },
       {
@@ -685,9 +685,9 @@ const projects: Record<string, Project> = {
       },
       {
         type: 'image',
-        image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028937907/gyGPItxLscnhaUDZ.png',
-        imageAlt: 'Charte graphique Elements : palette de couleurs, typographies Gotham Black et Roboto, étiquettes produit',
-        caption: 'Charte graphique complète : palette vert forêt, terracotta et crème, typos Gotham Black pour les titres et Roboto pour le contenu, déclinaison sur étiquettes produit',
+        image: `${import.meta.env.BASE_URL}elements/charte-complete.jpg`,
+        imageAlt: 'Charte graphique Elements : marque-pages, palette de couleurs, typographies Gotham Black et Roboto',
+        caption: 'Charte graphique complète : marque-pages en réel, palette vert forêt / terracotta / crème, typos Gotham Black pour les titres et Roboto pour le contenu',
       },
       {
         type: 'callout',
