@@ -1,6 +1,9 @@
 import { Link } from 'wouter';
 import { useEffect, useRef, useState } from 'react';
+import { Component, Compass, Moon } from 'lucide-react';
 import type { ProjectEntry } from '@/data/projects';
+
+const ICONS = { 'design-system': Component, compass: Compass, moon: Moon };
 
 export function useIntersection(ref: React.RefObject<Element | null>) {
   const [visible, setVisible] = useState(false);
@@ -33,6 +36,7 @@ export default function ProjectCard({ project, delay = 1 }: { project: ProjectEn
               src={project.thumb}
               alt={project.label}
               loading="lazy"
+              className={project.thumbFit === 'contain' ? 'thumb-contain' : undefined}
             />
           ) : (
             <div
@@ -44,9 +48,13 @@ export default function ProjectCard({ project, delay = 1 }: { project: ProjectEn
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                gap: '0.5rem',
+                gap: '0.6rem',
               }}
             >
+              {project.cardIcon && (() => {
+                const Icon = ICONS[project.cardIcon];
+                return <Icon size={34} strokeWidth={1.5} color="rgba(255,255,255,0.85)" />;
+              })()}
               <span style={{ color: 'rgba(255,255,255,0.9)', fontFamily: 'Jost, sans-serif', fontWeight: 700, fontSize: '1rem', letterSpacing: '-0.01em', textAlign: 'center', padding: '0 1rem' }}>{project.label}</span>
               {project.cardSubtitle && (
                 <span style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'DM Sans, sans-serif', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', textAlign: 'center', padding: '0 1rem' }}>{project.cardSubtitle}</span>

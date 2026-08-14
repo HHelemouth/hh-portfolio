@@ -13,7 +13,9 @@ export interface ProjectEntry {
   tags: string[];
   isNew?: boolean;
   thumb?: string;
+  thumbFit?: 'cover' | 'contain';
   cardSubtitle?: string;
+  cardIcon?: 'design-system' | 'compass' | 'moon';
   color: string;
 }
 
@@ -33,6 +35,7 @@ export const projects: ProjectEntry[] = [
     year: '2024',
     tags: ['Design System', 'Figma', 'Tokens'],
     cardSubtitle: 'Multi-Produits · Figma',
+    cardIcon: 'design-system',
     color: '#3B3FD8',
   },
   {
@@ -48,6 +51,8 @@ export const projects: ProjectEntry[] = [
     label: 'Proveil',
     year: '2023',
     tags: ['UX Research', 'Test Hassenzahl', 'Refonte'],
+    thumb: `${import.meta.env.BASE_URL}proveil/logo.png`,
+    thumbFit: 'contain',
     cardSubtitle: 'UX Research · Refonte',
     color: '#0F4C81',
   },
@@ -58,6 +63,7 @@ export const projects: ProjectEntry[] = [
     isNew: true,
     tags: ['Product Design', 'Développement', 'IA', 'Product Building'],
     cardSubtitle: 'IA · Product Building',
+    cardIcon: 'moon',
     color: '#8B4513',
   },
   {
@@ -114,6 +120,7 @@ export const projects: ProjectEntry[] = [
     year: '2019',
     tags: ['Direction artistique', 'Identité visuelle', 'Logo'],
     cardSubtitle: 'Direction Artistique · Identité visuelle',
+    cardIcon: 'compass',
     color: '#2BD081',
   },
   {
