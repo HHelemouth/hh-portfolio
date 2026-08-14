@@ -7,6 +7,7 @@
 import { Link } from 'wouter';
 import SEOHead from '@/components/SEOHead';
 import { ArrowLeft } from 'lucide-react';
+import CaseStudyHeader from '@/components/CaseStudyHeader';
 
 export default function DesignSystem() {
   return (
@@ -18,81 +19,18 @@ export default function DesignSystem() {
     />
     <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
 
-      {/* Hero, fond bleu plein comme le carousel */}
-      <section
-        className="px-5 py-12 sm:px-8 sm:py-20 md:px-16 md:py-28 relative overflow-hidden w-full"
-        style={{ backgroundColor: '#3B3FD8' }}
-      >
-        <div className="max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto">
-        {/* Retour */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 mb-10 text-sm transition-opacity hover:opacity-70"
-          style={{ color: 'rgba(255,255,255,0.7)', fontFamily: 'DM Sans, sans-serif' }}
-        >
-          <ArrowLeft size={14} />
-          Retour
-        </Link>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {['Design System', 'Figma', 'Multi-produits', 'Tokens'].map((tag) => (
-            <span
-              key={tag}
-              className="text-xs px-3 py-1 rounded-full"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.15)',
-                color: 'rgba(255,255,255,0.9)',
-                fontFamily: 'DM Sans, sans-serif',
-                letterSpacing: '0.03em',
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Titre */}
-        <h1
-          className="text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-5 max-w-3xl break-words w-full"
-          style={{ fontFamily: 'Jost, sans-serif', lineHeight: 1.15, letterSpacing: '-0.02em' }}
-        >
-          Construire un design system pour 7 produits
-        </h1>
-
-        <p
-          className="text-sm sm:text-lg md:text-xl max-w-2xl"
-          style={{ color: 'rgba(255,255,255,0.8)', fontFamily: 'DM Sans, sans-serif', lineHeight: 1.6 }}
-        >
-          Ce que personne ne vous dit sur le chemin.
-        </p>
-
-        {/* Méta */}
-        <div className="mt-8 sm:mt-12 flex flex-wrap gap-4 sm:gap-8">
-          {[
-            { label: 'Entreprise', value: 'Intescia' },
-            { label: 'Rôle', value: 'Product Designer' },
-            { label: 'Périmètre', value: '7 produits · 2 entités' },
-            { label: 'Outil', value: 'Figma · Variables' },
-          ].map((item) => (
-            <div key={item.label}>
-              <div
-                className="text-xs uppercase tracking-widest mb-1"
-                style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'DM Sans, sans-serif' }}
-              >
-                {item.label}
-              </div>
-              <div
-                className="text-sm font-medium text-white"
-                style={{ fontFamily: 'DM Sans, sans-serif' }}
-              >
-                {item.value}
-              </div>
-            </div>
-          ))}
-        </div>
-        </div>
-      </section>
+      {/* Hero */}
+      <CaseStudyHeader
+        title="Construire un design system pour 7 produits"
+        tags={['Design System', 'Figma', 'Multi-produits', 'Tokens']}
+        description="Ce que personne ne vous dit sur le chemin."
+        meta={[
+          { label: 'Entreprise', value: 'Intescia' },
+          { label: 'Rôle', value: 'Product Designer' },
+          { label: 'Périmètre', value: '7 produits · 2 entités' },
+          { label: 'Outil', value: 'Figma · Variables' },
+        ]}
+      />
 
       {/* Intro, Le chaos organisé */}
       <section className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto">

@@ -6,6 +6,7 @@
 
 import { Link, useParams } from 'wouter';
 import SEOHead from '@/components/SEOHead';
+import CaseStudyHeader from '@/components/CaseStudyHeader';
 
 const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2';
 
@@ -993,55 +994,14 @@ export default function ProjectPage() {
       canonicalPath={`/projet/${slug}`}
     />
     <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
-      {/* Hero image pleine largeur */}
-      <div
-        className="w-full overflow-hidden"
-        style={{ maxHeight: '400px', borderBottom: '1px solid oklch(0.91 0.02 264)' }}
-      >
-        <img
-          src={project.hero}
-          alt={project.heroAlt}
-          className="w-full h-full object-cover object-top"
-          style={{ maxHeight: '400px' }}
-        />
-      </div>
+      <CaseStudyHeader
+        title={project.title}
+        tags={project.tags}
+        description={project.subtitle}
+      />
 
       {/* Contenu */}
-      <div className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl pt-8 sm:pt-10 pb-20 sm:pb-24">
-        {/* Retour */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-xs mb-6 sm:mb-8 transition-opacity hover:opacity-60"
-          style={{ color: 'oklch(0.5 0.04 264)', fontFamily: 'DM Sans, sans-serif' }}
-        >
-          ← Retour aux projets
-        </Link>
-
-        {/* En-tête */}
-        <div className="mb-8">
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.tags.map((tag) => (
-              <span key={tag} className="mission-tag">{tag}</span>
-            ))}
-
-          </div>
-          <h1
-            className="text-2xl sm:text-4xl mb-3 sm:mb-4"
-            style={{ fontFamily: 'Jost, sans-serif', fontWeight: 700, color: 'oklch(0.13 0.02 264)', lineHeight: 1.2, letterSpacing: '-0.01em' }}
-          >
-            {project.title}
-          </h1>
-          <p
-            className="text-sm"
-            style={{ color: 'oklch(0.42 0.04 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 400, letterSpacing: '0.04em', lineHeight: 1.5 }}
-          >
-            {project.subtitle}
-          </p>
-        </div>
-
-        {/* Séparateur bleu */}
-        <div className="w-12 h-0.5 mb-8" style={{ backgroundColor: 'oklch(0.42 0.22 264)' }} />
-
+      <main className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl py-8 sm:py-14">
         {/* Intro */}
         {project.intro && (
           <p
@@ -1082,7 +1042,7 @@ export default function ProjectPage() {
             Me contacter
           </Link>
         </div>
-      </div>
+      </main>
     </div>
     </>
   );
