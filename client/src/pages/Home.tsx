@@ -26,8 +26,7 @@ const chapters: Chapter[] = [
     eyebrow: '01 : Partir de zéro',
     title: 'Lancement de produit',
     body: "J'aime lancer des produits sur des marchés pas encore adressés : le moment où il faut poser les bonnes hypothèses avant de coder quoi que ce soit. Chez Explore, j'ai porté 3 lancements de zéro. À chaque fois, même méthode : comprendre le métier, tester le problème avant la solution, itérer vite.",
-    slugs: ['city-manager', 'territoire-360'],
-    extraNote: "Un 3ᵉ lancement, ELM Codata, arrivera bientôt en étude de cas.",
+    slugs: ['city-manager', 'territoire-360', 'elm-codata'],
   },
   {
     eyebrow: '02 : Améliorer l\'existant',

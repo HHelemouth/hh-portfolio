@@ -15,7 +15,7 @@ export interface ProjectEntry {
   thumb?: string;
   thumbFit?: 'cover' | 'contain';
   cardSubtitle?: string;
-  cardIcon?: 'design-system' | 'compass' | 'moon' | 'map';
+  cardIcon?: 'design-system' | 'compass' | 'moon' | 'map' | 'store';
   color: string;
 }
 
@@ -45,6 +45,16 @@ export const projects: ProjectEntry[] = [
     tags: ['Lancement produit', 'UX', 'UI'],
     thumb: `${CDN}/territoire_360_66b1fb96.png`,
     color: '#1E3A5F',
+  },
+  {
+    slug: 'elm-codata',
+    label: 'ELM by Codata',
+    year: '2024',
+    isNew: true,
+    tags: ['Lancement produit', 'Étude de marché', 'SaaS B2B'],
+    cardSubtitle: 'Géomarketing · Self-service',
+    cardIcon: 'store',
+    color: '#0A5C36',
   },
   {
     slug: 'proveil',
