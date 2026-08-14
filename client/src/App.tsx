@@ -22,7 +22,7 @@ const BASE_PATH = '/hh-portfolio';
 
 function Router() {
   return (
-    <div className="flex min-h-screen overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
+    <div className="flex min-h-screen overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)', overflowY: 'visible' }}>
       <ScrollToTop />
       {/* Navigation latérale fixe — desktop */}
       <div className="hidden md:block">
@@ -33,7 +33,7 @@ function Router() {
       <MobileNav />
 
       {/* Contenu principal décalé à droite sur desktop */}
-      <main className="flex-1 w-full min-w-0 md:ml-52 pt-14 md:pt-0 overflow-x-hidden">
+      <main className="flex-1 w-full min-w-0 md:ml-52 pt-14 md:pt-0 overflow-x-hidden" style={{ overflowY: 'visible' }}>
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/projets" component={Projets} />

@@ -118,7 +118,7 @@ export default function PocLlmCarto() {
       description="POC LLM au sein du groupe Intescia : recherche en langage naturel, chat conversationnel couplé à une carte interactive, refonte du moteur de recherche T360 et tests utilisateurs."
       canonicalPath="/projet/poc-llm-carto"
     />
-    <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
+    <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)', overflowY: 'visible' }}>
 
       <CaseStudyHeader
         title="Exploration IA appliquée à la cartographie"

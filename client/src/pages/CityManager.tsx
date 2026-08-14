@@ -70,7 +70,7 @@ export default function CityManager() {
       description="Étude de marché et lancement produit d'une plateforme SaaS pour les managers de ville. Discovery, personnas, architecture, gamification et IA."
       canonicalPath="/projet/city-manager"
     />
-    <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
+    <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)', overflowY: 'visible' }}>
 
       {/* Hero */}
       <CaseStudyHeader

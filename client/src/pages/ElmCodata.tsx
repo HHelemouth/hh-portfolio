@@ -77,7 +77,7 @@ export default function ElmCodata() {
       description="Lancement d'une plateforme d'études locales de marché en libre-service, pour les commerçants et réseaux de franchise. Parcours utilisateur, configuration des critères, compte multi-utilisateurs."
       canonicalPath="/projet/elm-codata"
     />
-    <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
+    <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)', overflowY: 'visible' }}>
 
       <CaseStudyHeader
         title="ELM by Codata"
