@@ -87,7 +87,7 @@ export default function ElmCodata() {
           { label: 'Rôle', value: 'Product Designer' },
           { label: 'Contexte', value: 'Codata, groupe Intescia' },
           { label: 'Cible', value: 'Commerçants, réseaux de franchise' },
-          { label: 'Type', value: 'Nouveau produit B2B' },
+          { label: 'Type', value: 'Nouveau produit B2B, en production' },
         ]}
       />
 
@@ -131,7 +131,7 @@ export default function ElmCodata() {
         {active === 'contexte' && (
           <section>
             {sectionTitle('Rendre l\'étude de marché accessible en libre-service')}
-            {bodyText("ELM (Étude Locale de Marché) est une plateforme géomarketing pensée pour évaluer le potentiel d'un futur emplacement commercial. L'objectif : que l'étude qui demandait auparavant l'intervention d'un expert devienne accessible en autonomie, en quelques minutes.")}
+            {bodyText("ELM (Étude Locale de Marché) est une plateforme géomarketing pensée pour évaluer le potentiel d'un futur emplacement commercial. L'objectif : que l'étude qui demandait auparavant l'intervention d'un expert devienne accessible en autonomie, en quelques minutes. Le produit a depuis été lancé sous le nom Mon Implantation.")}
             <div className="my-4" />
             {bodyText("Deux cibles aux besoins différents. D'un côté, les porteurs de projet qui se lancent dans le commerce et n'ont pas toujours les moyens de commander une étude classique, mais ont besoin d'être rassurés avant de s'engager. De l'autre, les réseaux de franchise, pour qui produire ce type d'étude est une obligation légale récurrente à chaque nouvelle implantation.")}
 
@@ -181,7 +181,7 @@ export default function ElmCodata() {
             <div className="my-4" />
             {bodyText("Le panneau de droite reste fixe pendant toute la configuration : adresse choisie, prix qui s'actualise en direct à mesure que les critères se précisent. L'utilisateur garde en permanence une vision du \"où j'en suis\" et du \"combien ça va coûter\", sans avoir à valider tout le parcours pour le découvrir.")}
 
-            {accent("Question ouverte à l'époque, jamais tranchée faute de budget pour continuer le projet : jusqu'où pousser la personnalisation sans noyer l'utilisateur ? Le choix a été de toujours proposer une configuration par défaut crédible, la personnalisation restant une option et non une obligation.")}
+            {accent("Question centrale du projet : jusqu'où pousser la personnalisation sans noyer l'utilisateur ? Le choix a été de toujours proposer une configuration par défaut crédible, la personnalisation restant une option et non une obligation.")}
           </section>
         )}
 
@@ -200,9 +200,23 @@ export default function ElmCodata() {
             {bodyText("Un point de vigilance identifié tôt : à quel moment demander la création de compte sans frustrer l'utilisateur qui n'a pas encore décidé de s'engager ? Le choix retenu était de rendre la connexion accessible via la barre de navigation, au bon vouloir de l'utilisateur, plutôt que de l'imposer en barrage avant même d'avoir vu la valeur de l'outil.")}
 
             <h3 className="text-lg font-semibold mt-8 mb-4" style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)' }}>
-              Perspectives restées ouvertes
+              Le produit aujourd'hui
             </h3>
-            {bodyText("Le projet s'est arrêté aux maquettes avant la mise en production, faute de budget pour aller plus loin. Plusieurs pistes étaient encore à l'étude au moment de la pause : une formule d'abonnement ou de packs pour les gros volumes de commande, une fonctionnalité d'analyse temporelle pour observer l'évolution d'un secteur d'activité sur plusieurs années, et un chatbot pour répondre aux questions les plus simples sans mobiliser le support.")}
+            {bodyText("Le projet a été mené jusqu'à sa mise en production, sous le nom Mon Implantation. La grille tarifaire imaginée pendant la conception (achat à l'unité, packs pour les gros volumes, offre sur devis pour les réseaux de franchise) est celle qui a été retenue au lancement, preuve que la logique de configuration pensée dès les maquettes correspondait bien aux usages réels.")}
+            <div className="my-4" />
+            {bodyText("Le produit est aujourd'hui accessible en ligne, avec des exemples d'études téléchargeables et une offre structurée en quatre paliers selon le volume de rapports commandés.")}
+
+            <div className="my-6">
+              <a
+                href="https://monimplantation.codata.eu/index"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-sm transition-opacity hover:opacity-80"
+                style={{ backgroundColor: '#3B3FD8', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: 500 }}
+              >
+                Voir le produit en ligne, Mon Implantation ↗
+              </a>
+            </div>
           </section>
         )}
 
