@@ -135,6 +135,14 @@ export default function ElmCodata() {
             <div className="my-4" />
             {bodyText("Deux cibles aux besoins différents. D'un côté, les porteurs de projet qui se lancent dans le commerce et n'ont pas toujours les moyens de commander une étude classique, mais ont besoin d'être rassurés avant de s'engager. De l'autre, les réseaux de franchise, pour qui produire ce type d'étude est une obligation légale récurrente à chaque nouvelle implantation.")}
 
+            <CaseImage
+              src={`${import.meta.env.BASE_URL}elm-codata/persona.jpg`}
+              alt="Persona Maxime Durand, entrepreneur en phase de démarrage, besoins et frustrations identifiés"
+              caption="Persona principal : Maxime Durand, entrepreneur en phase de démarrage. Peu de capital, pas d'expertise en géomarketing, besoin d'être guidé étape par étape"
+            />
+
+            {bodyText("Deux frustrations identifiées chez ce profil ont directement guidé des choix de conception : la peur des coûts cachés (d'où le prix qui s'actualise en direct pendant la configuration, jamais une surprise en fin de parcours) et la complexité perçue des outils d'étude classiques (d'où le choix d'une configuration par défaut crédible à chaque étape, la personnalisation restant optionnelle plutôt qu'imposée).")}
+
             {accent("Codata dispose d'une base de données propriétaire unique sur le marché (historique de plus de 15 ans, taux de vacance commerciale, évolution du chiffre d'affaires) : la plateforme devait rendre cette richesse de données lisible et actionnable, sans expertise préalable de la part de l'utilisateur.")}
 
             {bodyText("Le principe retenu : aller à l'essentiel dès la landing page, avec un accès direct aux fonctionnalités clés, puis un parcours en quatre étapes qui construit l'étude pas à pas, sans jamais demander plus d'informations que nécessaire.")}
