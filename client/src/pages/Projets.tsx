@@ -38,7 +38,9 @@ export default function Projets() {
       </header>
 
       <section className="px-5 sm:px-10 pb-20">
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 sm:gap-x-6 gap-y-7 sm:gap-y-10">
+        <div
+          className="grid grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-x-3 sm:gap-x-6 gap-y-7 sm:gap-y-10"
+        >
           {projects.map((p, i) => (
             <ProjectCard key={p.slug} project={p} delay={Math.min((i % 3) + 1, 6)} />
           ))}
