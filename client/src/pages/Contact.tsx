@@ -18,7 +18,7 @@ export default function Contact() {
       canonicalPath="/contact"
     />
     <div className="min-h-screen" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
-      <div className="px-5 sm:px-10 pt-10 sm:pt-14 pb-16 sm:pb-20 max-w-2xl lg:max-w-3xl mx-auto">
+      <div className="content-col max-w-2xl lg:max-w-3xl pt-10 sm:pt-14 pb-16 sm:pb-20">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs mb-8 sm:mb-10 transition-colors"

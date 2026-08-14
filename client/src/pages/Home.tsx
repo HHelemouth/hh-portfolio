@@ -203,7 +203,7 @@ export default function Home() {
 
       {/* ── FOOTER ── */}
       <footer
-        className="px-5 sm:px-10 py-6 sm:py-8 text-xs"
+        className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl py-6 sm:py-8 text-xs"
         style={{ borderTop: '1px solid oklch(0.91 0.02 264)', color: 'oklch(0.6 0.04 264)', fontFamily: 'DM Sans, sans-serif' }}
       >
         <div className="flex justify-between items-center">

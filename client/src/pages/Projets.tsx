@@ -15,7 +15,7 @@ export default function Projets() {
     <>
     <SEOHead title="Tous les projets" canonicalPath="/projets" />
     <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
-      <header className="px-5 sm:px-10 pt-10 sm:pt-16 pb-8 sm:pb-10">
+      <header className="content-col max-w-5xl lg:max-w-6xl xl:max-w-7xl pt-10 sm:pt-16 pb-8 sm:pb-10">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs mb-6 transition-opacity hover:opacity-70"
@@ -37,9 +37,9 @@ export default function Projets() {
         </p>
       </header>
 
-      <section className="px-5 sm:px-10 pb-20">
+      <section className="content-col max-w-5xl lg:max-w-6xl xl:max-w-7xl pb-20">
         <div
-          className="grid grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-x-3 sm:gap-x-6 gap-y-7 sm:gap-y-10"
+          className="grid grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-x-3 sm:gap-x-6 gap-y-7 sm:gap-y-10"
         >
           {projects.map((p, i) => (
             <ProjectCard key={p.slug} project={p} delay={Math.min((i % 3) + 1, 6)} />
@@ -48,7 +48,7 @@ export default function Projets() {
       </section>
 
       <footer
-        className="px-5 sm:px-10 py-6 sm:py-8 text-xs"
+        className="content-col max-w-5xl lg:max-w-6xl xl:max-w-7xl py-6 sm:py-8 text-xs"
         style={{
           borderTop: '1px solid oklch(0.91 0.02 264)',
           color: 'oklch(0.6 0.04 264)',
