@@ -251,4 +251,27 @@
   .fade-up-delay-4 { animation-delay: 0.2s; }
   .fade-up-delay-5 { animation-delay: 0.25s; }
   .fade-up-delay-6 { animation-delay: 0.3s; }
+
+  /* Colonne de contenu — source unique de vérité pour le rembourrage horizontal.
+     Utilisée partout (header, nav, corps) pour garantir un alignement pixel-perfect
+     entre les blocs d'une même page. La largeur max se déclare séparément (max-w-*). */
+  .content-col {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .content-col {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .content-col {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
 }

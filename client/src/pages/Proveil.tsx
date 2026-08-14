@@ -83,10 +83,9 @@ export default function Proveil() {
 
       {/* Hero */}
       <header
-        className="px-5 pt-8 pb-8 sm:px-8 sm:pt-12 sm:pb-10 md:px-16"
+        className="content-col max-w-3xl pt-8 pb-8 sm:pt-12 sm:pb-10"
         style={{ borderBottom: '1px solid oklch(0.91 0.02 264)' }}
       >
-        <div className="max-w-3xl mx-auto">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs mb-8 transition-opacity hover:opacity-70"
@@ -145,15 +144,13 @@ export default function Proveil() {
             </div>
           ))}
         </div>
-        </div>
       </header>
 
       {/* Bandeau résultats — teaser en tête, avant même le détail de la démarche */}
       <div
-        className="px-5 py-6 sm:px-8 sm:py-8 md:px-16"
         style={{ backgroundColor: 'oklch(0.97 0.015 264)', borderBottom: '1px solid oklch(0.91 0.02 264)' }}
       >
-        <div className="max-w-3xl mx-auto">
+        <div className="content-col max-w-3xl py-6 sm:py-8">
         <p
           className="text-xs uppercase tracking-widest mb-4"
           style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif', fontWeight: 600 }}
@@ -184,7 +181,7 @@ export default function Proveil() {
 
       {/* Navigation par onglets */}
       <nav
-        className="sticky top-14 md:top-0 z-40 px-0 sm:px-8 md:px-16 overflow-x-auto"
+        className="sticky top-14 md:top-0 z-40 overflow-x-auto"
         style={{
           backgroundColor: 'rgba(255,255,255,0.97)',
           backdropFilter: 'blur(8px)',
@@ -195,7 +192,7 @@ export default function Proveil() {
           scrollbarWidth: 'none',
         } as React.CSSProperties}
       >
-        <div className="flex gap-0 min-w-max px-5 sm:px-0 sm:max-w-3xl sm:mx-auto">
+        <div className="content-col max-w-3xl flex gap-0 min-w-max">
           {CHAPTERS.map((ch) => (
             <button
               key={ch.id}
@@ -218,7 +215,7 @@ export default function Proveil() {
       </nav>
 
       {/* Contenu des chapitres */}
-      <main className="px-5 py-8 sm:px-8 sm:py-14 md:px-16 max-w-3xl w-full mx-auto">
+      <main className="content-col max-w-3xl py-8 sm:py-14">
 
         {/* ── CONTEXTE ── */}
         {active === 'contexte' && (

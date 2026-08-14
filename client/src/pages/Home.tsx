@@ -63,7 +63,7 @@ function ChapterSection({ chapter, index }: { chapter: Chapter; index: number })
   return (
     <section
       ref={ref}
-      className="px-5 sm:px-10 py-10 sm:py-14"
+      className="py-10 sm:py-14"
       style={{
         borderTop: index === 0 ? 'none' : '1px solid oklch(0.91 0.02 264)',
         opacity: visible ? 1 : 0,
@@ -71,7 +71,7 @@ function ChapterSection({ chapter, index }: { chapter: Chapter; index: number })
         transition: 'opacity 0.6s ease, transform 0.6s ease',
       }}
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="content-col max-w-3xl">
         <p
           className="text-xs font-medium tracking-[0.18em] uppercase mb-3"
           style={{ color: 'oklch(0.45 0.22 264)', fontFamily: 'DM Sans, sans-serif' }}
@@ -121,14 +121,14 @@ export default function Home() {
       {/* ── HERO ── */}
       <section
         ref={heroRef}
-        className="px-5 sm:px-10 pt-10 sm:pt-16 pb-10 sm:pb-12"
+        className="pt-10 sm:pt-16 pb-10 sm:pb-12"
         style={{
           opacity: heroVisible ? 1 : 0,
           transform: heroVisible ? 'none' : 'translateY(20px)',
           transition: 'opacity 0.6s ease, transform 0.6s ease',
         }}
       >
-        <div className="flex flex-col sm:flex-row sm:items-start sm:gap-12 max-w-3xl mx-auto">
+        <div className="content-col max-w-3xl flex flex-col sm:flex-row sm:items-start sm:gap-12">
           {/* Portrait mobile */}
           <div className="flex sm:hidden mb-5">
             <div
