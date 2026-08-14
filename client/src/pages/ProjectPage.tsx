@@ -1007,7 +1007,7 @@ export default function ProjectPage() {
       </div>
 
       {/* Contenu */}
-      <div className="px-5 sm:px-10 pt-8 sm:pt-10 pb-20 sm:pb-24 max-w-3xl">
+      <div className="px-5 sm:px-10 pt-8 sm:pt-10 pb-20 sm:pb-24 max-w-3xl mx-auto">
         {/* Retour */}
         <Link
           href="/"

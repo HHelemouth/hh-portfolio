@@ -77,6 +77,7 @@ export default function CityManager() {
         className="px-5 pt-8 pb-8 sm:px-8 sm:pt-12 sm:pb-10 md:px-16"
         style={{ borderBottom: '1px solid oklch(0.91 0.02 264)' }}
       >
+        <div className="max-w-3xl mx-auto">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs mb-8 transition-opacity hover:opacity-70"
@@ -135,6 +136,7 @@ export default function CityManager() {
             </div>
           ))}
         </div>
+        </div>
       </header>
 
       {/* Navigation par onglets */}
@@ -150,7 +152,7 @@ export default function CityManager() {
           scrollbarWidth: 'none',
         } as React.CSSProperties}
       >
-        <div className="flex gap-0 min-w-max px-5 sm:px-0">
+        <div className="flex gap-0 min-w-max px-5 sm:px-0 sm:max-w-3xl sm:mx-auto">
           {CHAPTERS.map((ch) => (
             <Fragment key={ch.id}>
               {ch.bonus && (
@@ -192,7 +194,7 @@ export default function CityManager() {
       </nav>
 
       {/* Contenu des chapitres */}
-      <main className="px-5 py-8 sm:px-8 sm:py-14 md:px-16 max-w-3xl w-full">
+      <main className="px-5 py-8 sm:px-8 sm:py-14 md:px-16 max-w-3xl w-full mx-auto">
 
         {/* ── CONTEXTE ── */}
         {active === 'contexte' && (

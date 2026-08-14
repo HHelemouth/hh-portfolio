@@ -86,6 +86,7 @@ export default function Proveil() {
         className="px-5 pt-8 pb-8 sm:px-8 sm:pt-12 sm:pb-10 md:px-16"
         style={{ borderBottom: '1px solid oklch(0.91 0.02 264)' }}
       >
+        <div className="max-w-3xl mx-auto">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs mb-8 transition-opacity hover:opacity-70"
@@ -144,6 +145,7 @@ export default function Proveil() {
             </div>
           ))}
         </div>
+        </div>
       </header>
 
       {/* Bandeau résultats — teaser en tête, avant même le détail de la démarche */}
@@ -151,6 +153,7 @@ export default function Proveil() {
         className="px-5 py-6 sm:px-8 sm:py-8 md:px-16"
         style={{ backgroundColor: 'oklch(0.97 0.015 264)', borderBottom: '1px solid oklch(0.91 0.02 264)' }}
       >
+        <div className="max-w-3xl mx-auto">
         <p
           className="text-xs uppercase tracking-widest mb-4"
           style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif', fontWeight: 600 }}
@@ -176,6 +179,7 @@ export default function Proveil() {
             </div>
           ))}
         </div>
+        </div>
       </div>
 
       {/* Navigation par onglets */}
@@ -191,7 +195,7 @@ export default function Proveil() {
           scrollbarWidth: 'none',
         } as React.CSSProperties}
       >
-        <div className="flex gap-0 min-w-max px-5 sm:px-0">
+        <div className="flex gap-0 min-w-max px-5 sm:px-0 sm:max-w-3xl sm:mx-auto">
           {CHAPTERS.map((ch) => (
             <button
               key={ch.id}
@@ -214,7 +218,7 @@ export default function Proveil() {
       </nav>
 
       {/* Contenu des chapitres */}
-      <main className="px-5 py-8 sm:px-8 sm:py-14 md:px-16 max-w-3xl w-full">
+      <main className="px-5 py-8 sm:px-8 sm:py-14 md:px-16 max-w-3xl w-full mx-auto">
 
         {/* ── CONTEXTE ── */}
         {active === 'contexte' && (

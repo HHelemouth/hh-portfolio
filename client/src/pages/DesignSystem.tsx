@@ -23,6 +23,7 @@ export default function DesignSystem() {
         className="px-5 py-12 sm:px-8 sm:py-20 md:px-16 md:py-28 relative overflow-hidden w-full"
         style={{ backgroundColor: '#3B3FD8' }}
       >
+        <div className="max-w-3xl mx-auto">
         {/* Retour */}
         <Link
           href="/"
@@ -90,10 +91,11 @@ export default function DesignSystem() {
             </div>
           ))}
         </div>
+        </div>
       </section>
 
       {/* Intro, Le chaos organisé */}
-      <section className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 max-w-3xl">
+      <section className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 max-w-3xl mx-auto">
         <p
           className="text-base md:text-lg italic mb-6"
           style={{
@@ -119,7 +121,7 @@ export default function DesignSystem() {
         className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 w-full overflow-x-hidden"
         style={{ backgroundColor: '#3B3FD8' }}
       >
-        <div className="max-w-4xl w-full">
+        <div className="max-w-4xl w-full mx-auto">
           <span
             className="text-xs uppercase tracking-widest mb-3 block"
             style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'DM Sans, sans-serif' }}
@@ -165,7 +167,7 @@ export default function DesignSystem() {
 
       {/* Chapitre 1, Primitif vs Sémantique */}
       <section className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 w-full overflow-x-hidden">
-        <div className="max-w-4xl w-full">
+        <div className="max-w-4xl w-full mx-auto">
           <span
             className="text-xs uppercase tracking-widest mb-3 block"
             style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif' }}
@@ -332,7 +334,7 @@ export default function DesignSystem() {
         className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 w-full overflow-x-hidden"
         style={{ backgroundColor: '#3B3FD8' }}
       >
-        <div className="max-w-4xl w-full">
+        <div className="max-w-4xl w-full mx-auto">
           <span
             className="text-xs uppercase tracking-widest mb-3 block"
             style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'DM Sans, sans-serif' }}
@@ -408,7 +410,7 @@ export default function DesignSystem() {
 
       {/* Principe des modes */}
       <section className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 w-full overflow-x-hidden">
-        <div className="max-w-4xl w-full">
+        <div className="max-w-4xl w-full mx-auto">
           <span
             className="text-xs uppercase tracking-widest mb-3 block"
             style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif' }}
@@ -530,7 +532,7 @@ export default function DesignSystem() {
         className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 w-full overflow-x-hidden"
         style={{ backgroundColor: 'oklch(0.97 0.01 264)' }}
       >
-        <div className="max-w-4xl w-full">
+        <div className="max-w-4xl w-full mx-auto">
           <span
             className="text-xs uppercase tracking-widest mb-3 block"
             style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif' }}
@@ -615,7 +617,7 @@ export default function DesignSystem() {
 
       {/* Chapitre 4, Ne pas avancer la tête dans le guidon */}
       <section className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 w-full overflow-x-hidden">
-        <div className="max-w-4xl w-full">
+        <div className="max-w-4xl w-full mx-auto">
           <span
             className="text-xs uppercase tracking-widest mb-3 block"
             style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif' }}
@@ -693,7 +695,7 @@ export default function DesignSystem() {
         className="px-5 py-10 sm:px-8 sm:py-16 md:px-16 md:py-20 w-full overflow-x-hidden"
         style={{ backgroundColor: '#3B3FD8' }}
       >
-        <div className="max-w-4xl w-full">
+        <div className="max-w-4xl w-full mx-auto">
           <span
             className="text-xs uppercase tracking-widest mb-3 block"
             style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'DM Sans, sans-serif' }}
@@ -747,7 +749,7 @@ export default function DesignSystem() {
 
       {/* Conclusion */}
       <section className="px-8 py-16 md:px-16 md:py-24">
-        <div className="max-w-3xl w-full">
+        <div className="max-w-3xl w-full mx-auto">
           <span
             className="text-xs uppercase tracking-widest mb-3 block"
             style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif' }}
