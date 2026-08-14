@@ -79,7 +79,7 @@ export default function Proveil() {
       description="Refonte ergonomique et graphique d'un logiciel interne. Test Hassenzahl, entretiens d'usage, atelier de co-conception et résultats mesurés."
       canonicalPath="/projet/proveil"
     />
-    <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'oklch(0.99 0 0)', overflowY: 'visible' }}>
+    <div className="min-h-screen w-full" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
 
       {/* Hero */}
       <CaseStudyHeader
