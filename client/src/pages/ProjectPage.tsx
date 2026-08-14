@@ -11,7 +11,7 @@ import CaseStudyHeader from '@/components/CaseStudyHeader';
 const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2';
 
 interface Section {
-  type: 'text' | 'image' | 'metric' | 'callout' | 'image-pair' | 'link-button' | 'quote' | 'quote-grid';  href?: string;
+  type: 'text' | 'image' | 'metric' | 'callout' | 'image-pair' | 'link-button' | 'quote' | 'quote-grid' | 'video';  href?: string;
   title?: string;
   body?: string;
   image?: string;
@@ -23,6 +23,7 @@ interface Section {
   author?: string;
   quoteTag?: string;
   quotes?: { author: string; tag: string; text: string }[];
+  video?: string;
 }
 
 interface Project {
@@ -701,9 +702,9 @@ const projects: Record<string, Project> = {
     subtitle: 'Direction artistique, Logo, Identité visuelle',
     year: '2019',
     tags: ['Direction artistique', 'Identité visuelle', 'Logo', 'Print'],
-    hero: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028937907/fMeGzhgPiAzOUaru.webp',
-    heroAlt: 'Brand guidelines TAO, la performance énergétique, logo boussole vert et violet',
-    intro: 'TAO, c\'est une structure spécialisée dans la performance énergétique. La mission : créer une identité visuelle complète qui incarne à la fois le mouvement, la précision et l\'engagement vers un objectif. Du logo à la charte graphique complète, en passant par les guidelines d\'habillage des images et le système typographique.',
+    hero: `${import.meta.env.BASE_URL}tao/logo.png`,
+    heroAlt: 'Logo TAO, boussole verte et bleu-violet',
+    intro: 'TAO, c\'est une structure spécialisée dans la performance énergétique. La mission : créer une identité visuelle complète qui incarne à la fois le mouvement, la précision et l\'engagement vers un objectif. Du logo à la charte graphique complète, en passant par les guidelines d\'habillage des images, le système typographique et une déclinaison motion design.',
     sections: [
       {
         type: 'text',
@@ -717,9 +718,31 @@ const projects: Record<string, Project> = {
       },
       {
         type: 'image',
-        image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028937907/fMeGzhgPiAzOUaru.webp',
-        imageAlt: 'Brand guidelines TAO complets : logo, palette de couleurs, typographies Gotham et Sofia Pro, habillage des images',
-        caption: 'Brand guidelines complets : logo boussole, palette vert #2BD081 et bleu-violet #5569D1, typos Gotham et Sofia Pro, règles d\'habillage des images avec les contours de la boussole',
+        image: `${import.meta.env.BASE_URL}tao/logo.png`,
+        imageAlt: 'Logo TAO, boussole verte et bleu-violet, tagline la performance énergétique',
+        caption: 'Le logo TAO : boussole stylisée, logotype Gotham, tagline "La performance énergétique"',
+      },
+      {
+        type: 'text',
+        title: 'Habillage des images',
+        body: 'Les contours de la boussole servent de cadres pour les photos. Ils peuvent aussi créer des compositions dynamiques en gardant la trame colorée de l\'identité. Les jeux de couleurs ne sont pas figés : il est possible d\'intervertir les bleus et verts selon l\'harmonie de l\'ensemble. Les contours et les aiguilles sont simplifiés pour conserver la mise en valeur des images.',
+      },
+      {
+        type: 'image',
+        image: `${import.meta.env.BASE_URL}tao/header-full.jpg`,
+        imageAlt: 'Bandeau de couverture TAO et règles d\'habillage des images avec les contours de la boussole',
+        caption: 'Bandeau de couverture et règles d\'habillage : les contours de la boussole cadrent les portraits et créent des compositions dynamiques',
+      },
+      {
+        type: 'text',
+        title: 'Le système typographique',
+        body: 'Gotham pour les titres et éléments forts : ses majuscules architecturales, inspirées de l\'enseigne new-yorkaise, apportent une signalisation claire et une présence affichée. Sofia Pro pour les textes courants : 16 polices, conçue pour la marque, la signalisation et le web. Un duo qui combine l\'impact d\'une géométrique ambitieuse avec la lisibilité d\'une sans-serif digitale.',
+      },
+      {
+        type: 'image',
+        image: `${import.meta.env.BASE_URL}tao/typography.jpg`,
+        imageAlt: 'Système typographique TAO : Gotham et Sofia Pro, graisses Light à Black',
+        caption: 'Le duo typographique : Gotham (titres) et Sofia Pro (texte courant), en 4 et 8 graisses respectivement',
       },
       {
         type: 'text',
@@ -727,14 +750,26 @@ const projects: Record<string, Project> = {
         body: 'Deux couleurs principales structurent l\'identité : le vert électrique #2BD081 (RGB 43, 208, 129) pour l\'énergie et la vitalité, et le bleu-violet #5569D1 (RGB 85, 105, 209) pour la confiance et l\'expertise. Deux teintes secondaires plus douces (#B9EAD3 et #6C82D0) permettent les dégradés et les fonds. Le blanc #FFFFFF et le navy profond #0F1E6F complètent le système.',
       },
       {
-        type: 'callout',
-        title: 'Système typographique',
-        calloutText: 'Gotham pour les titres et éléments forts : ses majuscules architecturales, inspirées de l\'enseigne new-yorkaise, apportent une signalisation claire et une présence affichée. Sofia Pro pour les textes courants : 16 polices, conçue pour la marque, la signalisation et le web. Un duo qui combine l\'impact d\'une géométrique ambitieuse avec la lisibilité d\'une sans-serif digitale.',
+        type: 'image',
+        image: `${import.meta.env.BASE_URL}tao/colors.jpg`,
+        imageAlt: 'Palette de couleurs TAO : vert #2BD081, bleu-violet #5569D1, teintes secondaires et navy',
+        caption: 'La palette complète, avec les codes RGB et CMJN de chaque teinte',
+      },
+      {
+        type: 'quote',
+        author: 'François Jeanmaire',
+        quoteTag: '18/11/2022',
+        body: 'Philippe et moi partageons une vision commune du projet et de ses orientations futures ainsi que des enjeux associés.',
       },
       {
         type: 'text',
-        title: 'Habillage des images',
-        body: 'Les contours de la boussole servent de cadres pour les photos. Ils peuvent aussi créer des compositions dynamiques en gardant la trame colorée de l\'identité. Les jeux de couleurs ne sont pas figés : il est possible d\'intervertir les bleus et verts selon l\'harmonie de l\'ensemble. Les contours et les aiguilles sont simplifiés pour conserver la mise en valeur des images. Pour garder le dynamisme, les images sélectionnées doivent être travaillées de manière à désaturer les contrastes.',
+        title: 'Déclinaison motion design',
+        body: 'Au-delà du print et du digital, l\'identité s\'est prolongée en motion design pour la présentation du TAO EMS (Energy Management System). J\'ai réalisé les rushs vidéo qui illustrent le système en mouvement, fidèle à la charte graphique et à ses codes visuels.',
+      },
+      {
+        type: 'video',
+        video: `${import.meta.env.BASE_URL}tao/motion-design.mp4`,
+        caption: 'Présentation TAO EMS (Energy Management System), motion design',
       },
     ],
   },
@@ -860,6 +895,33 @@ function ProjectSection({ section }: { section: Section }) {
             <path d="M2 12L12 2M12 2H6M12 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
+      </div>
+    );
+  }
+
+  if (section.type === 'video') {
+    return (
+      <div className="my-10">
+        <div
+          className="overflow-hidden rounded-sm"
+          style={{ border: '1px solid oklch(0.91 0.02 264)' }}
+        >
+          <video
+            src={section.video}
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full h-auto block"
+          />
+        </div>
+        {section.caption && (
+          <p
+            className="text-xs mt-2"
+            style={{ color: 'oklch(0.52 0.04 264)', fontFamily: 'DM Sans, sans-serif', fontStyle: 'italic' }}
+          >
+            {section.caption}
+          </p>
+        )}
       </div>
     );
   }
