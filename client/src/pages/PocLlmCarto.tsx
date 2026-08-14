@@ -151,16 +151,24 @@ export default function PocLlmCarto() {
 
             <CaseImage
               src={`${import.meta.env.BASE_URL}poc-llm-carto/chat-onboarding.jpg`}
-              alt="Interface chat avec suggestions de questions et zone de résultats"
+              alt="Interface chat avec suggestions de questions et zone de résultats vide"
               caption="Écran d'accueil du chat : suggestions de questions types, liste des données couvertes par le modèle accessible en info-bulle"
             />
 
-            {bodyText("Les résultats peuvent s'afficher dans la conversation elle-même, ou basculer vers une carte interactive. L'utilisateur peut alors ajouter des couches sur cette carte, les recolorer, les renommer, les masquer ou les partager.")}
+            {bodyText("Les résultats s'affichent sous forme de fiches détaillées, avec bascule immédiate vers une carte interactive. L'utilisateur peut ajouter des couches sur cette carte, les recolorer, les renommer, les masquer ou les partager.")}
 
             <CaseImage
-              src={`${import.meta.env.BASE_URL}poc-llm-carto/carte-couches.jpg`}
-              alt="Carte interactive avec légende de couches modifiable et recherche dans la zone visible"
-              caption="Carte interactive : légende de couche éditable (intitulé, symbologie), recherche affinée dans la zone visible, bascule vue satellite"
+              src={`${import.meta.env.BASE_URL}poc-llm-carto/carte-parcelles.jpg`}
+              alt="Résultats de recherche en fiches détaillées et carte avec une couche de parcelles"
+              caption="Résultat pour « Quelles sont les parcelles de + de 1000m² à Toulouse ? » : fiches détaillées à gauche, couche cartographiée à droite, export possible"
+            />
+
+            {bodyText("Le vrai intérêt du format conversationnel apparaît dans l'enchaînement : chaque nouvelle question s'ajoute à la carte comme une couche supplémentaire, sans repartir de zéro. Poser une question de suivi (\"quelles boulangeries dans ces parcelles ?\") superpose le résultat sur la carte existante plutôt que de la remplacer.")}
+
+            <CaseImage
+              src={`${import.meta.env.BASE_URL}poc-llm-carto/carte-multi-couches.jpg`}
+              alt="Carte avec deux couches superposées, parcelles et boulangeries, suite à une question de suivi"
+              caption="Question de suivi « Quelles sont les boulangeries dans ces parcelles ? » : la nouvelle couche (points roses) se superpose à la précédente sans perdre le contexte"
             />
 
             {bodyText("Le geste \"Recherche dans cette zone\" reprend un pattern connu (type Google Maps / Airbnb) : plutôt que de tout re-décrire en langage naturel, l'utilisateur peut simplement déplacer la carte et relancer la recherche sur la zone visible.")}
@@ -170,26 +178,38 @@ export default function PocLlmCarto() {
         {/* ── RECHERCHE MOTS-CLÉS VS IA ── */}
         {active === 'recherche' && (
           <section>
-            {sectionTitle('Deux façons de chercher, côte à côte')}
-            {bodyText("En parallèle du chat cartographique, j'ai travaillé sur une refonte du moteur de recherche de T360 lui-même : une refonte qui n'a jamais vu le jour faute de budget, mais qui a été suffisamment aboutie pour être testée auprès d'un panel d'utilisateurs.")}
+            {sectionTitle('Trois façons de chercher, une seule interface')}
+            {bodyText("En parallèle du chat cartographique, j'ai travaillé sur une refonte du moteur de recherche de T360 lui-même : une refonte qui n'a jamais vu le jour faute de budget, mais suffisamment aboutie pour être testée en clientèle.")}
             <div className="my-4" />
-            {bodyText("L'idée : ne pas opposer recherche par mots-clés et recherche en langage naturel, mais les faire cohabiter. L'utilisateur choisit son mode selon ce qui lui est le plus naturel à l'instant T, avec un aller-retour possible entre les deux.")}
+            {bodyText("Plutôt que d'opposer mots-clés et langage naturel, le principe retenu propose trois modes accessibles depuis le même sélecteur : Recherche libre, Mot par mot, et Syntaxe avancée. L'utilisateur choisit son mode selon ce qui lui est le plus naturel à l'instant T, avec un aller-retour possible entre les modes.")}
 
             <CaseImage
-              src={`${import.meta.env.BASE_URL}poc-llm-carto/recherche-mots-cles.jpg`}
-              alt="Panneau de recherche classique par mots-clés, thème, lieu, période"
-              caption="Mode mots-clés : formulaire structuré classique (thème, lieu, acteur, période) — pour qui sait déjà précisément ce qu'il cherche"
+              src={`${import.meta.env.BASE_URL}poc-llm-carto/mode-mots-cles.jpg`}
+              alt="Interface T360 en mode recherche mots par mot, avec les résultats du fil d'actualité"
+              caption="Mode « Mot par mot » : ajout de mots-clés un par un, pour qui sait précisément ce qu'il cherche"
             />
-
-            {bodyText("Le second mode ouvre un panneau \"Analyse IA\" : un espace conversationnel avec des raccourcis pré-remplis (synthèse des résultats, synthèse d'un document, synthèse d'un acteur) pour ne pas partir d'une page blanche.")}
 
             <CaseImage
-              src={`${import.meta.env.BASE_URL}poc-llm-carto/recherche-ia.jpg`}
-              alt="Panneau de recherche IA avec suggestions de synthèse et champ de saisie libre"
-              caption="Mode IA : formulation libre, avec des raccourcis de synthèse pour démarrer sans effort de formulation"
+              src={`${import.meta.env.BASE_URL}poc-llm-carto/mode-syntaxe.jpg`}
+              alt="Interface T360 en mode syntaxe avancée, avec un champ de mots-clés embarqués"
+              caption="Mode « Syntaxe avancée » : opérateurs booléens explicites (AND, OR, NEAR), pour les utilisateurs experts qui pensent déjà en requêtes"
             />
 
-            {bodyText("Les deux panneaux partagent la même structure de menu (\"Recherche par : Thèmes / Mots-clés / Recherches enregistrées\"), pour que le changement de mode ne soit jamais une rupture complète de repères.")}
+            {bodyText("Le mode « Recherche libre » est celui qui change vraiment la donne : l'utilisateur formule sa demande en une phrase, et l'interface la traduit en clair avant de lancer la recherche — avec la possibilité de basculer sur la syntaxe technique équivalente pour vérifier ou affiner.")}
+
+            <CaseImage
+              src={`${import.meta.env.BASE_URL}poc-llm-carto/traduction-libre.jpg`}
+              alt="Recherche libre avec traduction en langage clair des critères compris par le système"
+              caption="« Je souhaite une recherche sur l'opposition aux projets éoliens » — traduit en critères explicites et modifiables individuellement"
+            />
+
+            <CaseImage
+              src={`${import.meta.env.BASE_URL}poc-llm-carto/traduction-syntaxe.jpg`}
+              alt="La même requête affichée en syntaxe booléenne technique"
+              caption="La même requête, vue en syntaxe technique (AND / OR / NEAR) — un simple bouton bascule entre les deux lectures"
+            />
+
+            {bodyText("Cette double lecture (traduction lisible ↔ syntaxe technique) est le cœur de l'hypothèse testée : donner confiance dans ce que l'IA a compris, sans jamais cacher la mécanique à qui veut la voir.")}
           </section>
         )}
 
@@ -197,24 +217,29 @@ export default function PocLlmCarto() {
         {active === 'tests' && (
           <section>
             {sectionTitle('Tester avant de conclure')}
-            {bodyText("Ce mode de recherche a été testé et validé auprès d'un panel d'utilisateurs T360, avec des profils volontairement différents : un directeur (usage stratégique, vision d'ensemble) et une cheffe de projet (usage quotidien, opérationnel).")}
+            {bodyText("Ce mode de recherche a été présenté et testé en clientèle, auprès d'interlocuteurs aux profils volontairement différents : un profil directeur, usage stratégique et vision d'ensemble, et un profil chargé de veille, usage quotidien et opérationnel.")}
 
             {accent("Le postulat de départ n'était pas neutre : est-ce que des utilisateurs habitués à un moteur de recherche très structuré allaient adopter un mode conversationnel, ou le vivre comme une régression ?")}
 
             <h3 className="text-lg font-semibold mt-8 mb-4" style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)' }}>
-              Ce qu'il fallait absolument garder
+              La traduction en clair, plébiscitée
             </h3>
-            {bodyText("La possibilité de revenir au mode mots-clés à tout moment est ressortie comme non négociable — certains utilisateurs experts du domaine savent exactement quel jargon métier tape juste, et ne veulent pas le \"traduire\" en langage naturel à chaque fois. Les raccourcis de synthèse pré-remplis ont aussi été très bien accueillis : ils lèvent le principal frein du mode conversationnel, la fameuse page blanche.")}
+            {bodyText("Le retour le plus net a porté sur la vue \"traduction\" de la recherche libre : voir sa phrase reformulée en critères explicites rassure, parce qu'une erreur de compréhension de l'IA devient immédiatement visible. Un interlocuteur a même formulé l'ambition ultime : que le système pose lui-même des questions de clarification avant de lancer la recherche, sur le modèle des outils de recherche approfondie qu'il utilise déjà par ailleurs — une seule recherche, affinée par étapes, plutôt que reformulée à chaque fois depuis zéro.")}
 
             <h3 className="text-lg font-semibold mt-8 mb-4" style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)' }}>
-              Ce qu'il fallait retirer ou simplifier
+              Le mode mot par mot, jugé superflu par les profils avancés
             </h3>
-            {bodyText("Le panel a été sans appel sur la surcharge d'information en une seule réponse : les utilisateurs veulent une réponse ciblée, avec la possibilité d'approfondir ensuite, pas un pavé de synthèse à décortiquer. Ressorti aussi : le besoin de garder la main sur ce que l'IA a comme périmètre de recherche, pour éviter la sensation de \"boîte noire\".")}
+            {bodyText("Un profil très à l'aise avec la syntaxe technique a été clair : il irait spontanément vers la syntaxe avancée plutôt que de passer par un mode intermédiaire mot par mot. Le mode thématique, lui, n'a convaincu qu'une fois recontextualisé comme un point de départ personnalisable, pas comme un premier réflexe de recherche.")}
+
+            <h3 className="text-lg font-semibold mt-8 mb-4" style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)' }}>
+              La traçabilité, non négociable
+            </h3>
+            {bodyText("Sur les fonctionnalités IA de synthèse, le point qui revient systématiquement est la source : pouvoir vérifier d'où vient une affirmation, avec la date, plutôt que de faire confiance à une synthèse qui pourrait figer une position ancienne comme si elle était toujours d'actualité. La concision a aussi été pointée : un résumé IA trop long, qui noie l'information plutôt que de la condenser, était vécu comme un vrai irritant plutôt qu'un gain de temps.")}
 
             <h3 className="text-lg font-semibold mt-8 mb-4" style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)' }}>
               Ce que ça m'a appris
             </h3>
-            {bodyText("Le plus contre-intuitif : ce ne sont pas les utilisateurs les moins à l'aise avec l'outil qui ont le plus demandé de garde-fous sur l'IA, mais les plus experts. Plus on maîtrise un domaine, plus on veut vérifier et garder le contrôle sur l'outil qui travaille pour nous. Ça a confirmé une conviction que j'avais déjà sur mes autres explorations IA : le bon réflexe n'est pas de tout automatiser, mais de rendre le raisonnement de l'IA visible et interruptible à tout moment.")}
+            {bodyText("Le plus contre-intuitif : ce ne sont pas les profils les moins à l'aise avec l'outil qui ont le plus demandé de garde-fous sur l'IA, mais les plus experts. Plus on maîtrise un domaine, plus on veut vérifier et garder le contrôle sur l'outil qui travaille pour nous. Ça a confirmé une conviction que j'avais déjà sur mes autres explorations IA : le bon réflexe n'est pas de tout automatiser, mais de rendre le raisonnement de l'IA visible et interruptible à tout moment.")}
           </section>
         )}
 
