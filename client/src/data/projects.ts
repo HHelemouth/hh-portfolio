@@ -52,8 +52,7 @@ export const projects: ProjectEntry[] = [
     year: '2024',
     isNew: true,
     tags: ['Lancement produit', 'Étude de marché', 'SaaS B2B'],
-    cardSubtitle: 'Géomarketing · Self-service',
-    cardIcon: 'store',
+    thumb: `${import.meta.env.BASE_URL}elm-codata/vignette.jpg`,
     color: '#0A5C36',
   },
   {
