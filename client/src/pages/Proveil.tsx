@@ -83,7 +83,7 @@ export default function Proveil() {
 
       {/* Hero */}
       <header
-        className="content-col max-w-3xl pt-8 pb-8 sm:pt-12 sm:pb-10"
+        className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl pt-8 pb-8 sm:pt-12 sm:pb-10"
         style={{ borderBottom: '1px solid oklch(0.91 0.02 264)' }}
       >
         <Link
@@ -150,7 +150,7 @@ export default function Proveil() {
       <div
         style={{ backgroundColor: 'oklch(0.97 0.015 264)', borderBottom: '1px solid oklch(0.91 0.02 264)' }}
       >
-        <div className="content-col max-w-3xl py-6 sm:py-8">
+        <div className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl py-6 sm:py-8">
         <p
           className="text-xs uppercase tracking-widest mb-4"
           style={{ color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif', fontWeight: 600 }}
@@ -192,7 +192,7 @@ export default function Proveil() {
           scrollbarWidth: 'none',
         } as React.CSSProperties}
       >
-        <div className="content-col max-w-3xl flex gap-0 min-w-max">
+        <div className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl flex gap-0 min-w-max">
           {CHAPTERS.map((ch) => (
             <button
               key={ch.id}
@@ -215,7 +215,7 @@ export default function Proveil() {
       </nav>
 
       {/* Contenu des chapitres */}
-      <main className="content-col max-w-3xl py-8 sm:py-14">
+      <main className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl py-8 sm:py-14">
 
         {/* ── CONTEXTE ── */}
         {active === 'contexte' && (

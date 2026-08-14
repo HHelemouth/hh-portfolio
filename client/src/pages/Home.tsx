@@ -71,7 +71,7 @@ function ChapterSection({ chapter, index }: { chapter: Chapter; index: number })
         transition: 'opacity 0.6s ease, transform 0.6s ease',
       }}
     >
-      <div className="content-col max-w-3xl">
+      <div className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl">
         <p
           className="text-xs font-medium tracking-[0.18em] uppercase mb-3"
           style={{ color: 'oklch(0.45 0.22 264)', fontFamily: 'DM Sans, sans-serif' }}
@@ -128,7 +128,7 @@ export default function Home() {
           transition: 'opacity 0.6s ease, transform 0.6s ease',
         }}
       >
-        <div className="content-col max-w-3xl flex flex-col sm:flex-row sm:items-start sm:gap-12">
+        <div className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl flex flex-col sm:flex-row sm:items-start sm:gap-12">
           {/* Portrait mobile */}
           <div className="flex sm:hidden mb-5">
             <div

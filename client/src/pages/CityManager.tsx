@@ -74,7 +74,7 @@ export default function CityManager() {
 
       {/* Hero */}
       <header
-        className="content-col max-w-3xl pt-8 pb-8 sm:pt-12 sm:pb-10"
+        className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl pt-8 pb-8 sm:pt-12 sm:pb-10"
         style={{ borderBottom: '1px solid oklch(0.91 0.02 264)' }}
       >
         <Link
@@ -150,7 +150,7 @@ export default function CityManager() {
           scrollbarWidth: 'none',
         } as React.CSSProperties}
       >
-        <div className="content-col max-w-3xl flex gap-0 min-w-max">
+        <div className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl flex gap-0 min-w-max">
           {CHAPTERS.map((ch) => (
             <Fragment key={ch.id}>
               {ch.bonus && (
@@ -192,7 +192,7 @@ export default function CityManager() {
       </nav>
 
       {/* Contenu des chapitres */}
-      <main className="content-col max-w-3xl py-8 sm:py-14">
+      <main className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl py-8 sm:py-14">
 
         {/* ── CONTEXTE ── */}
         {active === 'contexte' && (
