@@ -43,7 +43,7 @@ const chapters: Chapter[] = [
   {
     eyebrow: '04 : Organiser et structurer',
     title: 'Figma & Design System',
-    body: "Sur 5 produits et plus de 40 000 utilisateurs, je suis devenue la référence Figma du groupe sans que ce soit écrit sur ma fiche de poste. Tokens, composants partagés, gouvernance multi-produits : je préfère un système qui tient dans le temps à une bibliothèque qu'on retape à chaque projet.",
+    body: "Sur 5 produits, je gérais plusieurs design systems en parallèle. J'ai contribué à leur convergence vers un système unique multi-produits : une source de vérité commune, des mises à jour propagées partout en une fois, et des nouvelles fonctionnalités qui s'implémentent plus vite, sans plus rien redévelopper en double. Je raconte ce chemin en détail dans l'étude de cas.",
     slugs: ['design-system'],
   },
   {
