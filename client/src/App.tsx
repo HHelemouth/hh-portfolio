@@ -1,7 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Router as WouterRouter, Switch } from "wouter";
+import { Route, Router as WouterRouter, Switch, useLocation } from "wouter";
+import { AnimatePresence, motion } from "framer-motion";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -21,6 +22,8 @@ import ScrollToTop from './components/ScrollToTop';
 const BASE_PATH = '/hh-portfolio';
 
 function Router() {
+  const [location] = useLocation();
+
   return (
     <div className="flex min-h-screen" style={{ backgroundColor: 'oklch(0.99 0 0)' }}>
       <ScrollToTop />
@@ -34,19 +37,29 @@ function Router() {
 
       {/* Contenu principal décalé à droite sur desktop */}
       <main className="flex-1 w-full min-w-0 md:ml-52 pt-14 md:pt-0">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/projets" component={Projets} />
-          <Route path="/projet/city-manager" component={CityManager} />
-          <Route path="/projet/design-system" component={DesignSystem} />
-          <Route path="/projet/proveil" component={Proveil} />
-          <Route path="/projet/poc-llm-carto" component={PocLlmCarto} />
-          <Route path="/projet/elm-codata" component={ElmCodata} />
-          <Route path="/projet/:slug" component={ProjectPage} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/404" component={NotFound} />
-          <Route component={NotFound} />
-        </Switch>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={location}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22, ease: 'easeInOut' }}
+          >
+            <Switch location={location}>
+              <Route path="/" component={Home} />
+              <Route path="/projets" component={Projets} />
+              <Route path="/projet/city-manager" component={CityManager} />
+              <Route path="/projet/design-system" component={DesignSystem} />
+              <Route path="/projet/proveil" component={Proveil} />
+              <Route path="/projet/poc-llm-carto" component={PocLlmCarto} />
+              <Route path="/projet/elm-codata" component={ElmCodata} />
+              <Route path="/projet/:slug" component={ProjectPage} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/404" component={NotFound} />
+              <Route component={NotFound} />
+            </Switch>
+          </motion.div>
+        </AnimatePresence>
       </main>
     </div>
   );
