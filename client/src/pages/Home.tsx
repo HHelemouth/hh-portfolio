@@ -120,19 +120,20 @@ export default function Home() {
       {/* ── HERO ── */}
       <section
         ref={heroRef}
-        className="pt-10 sm:pt-16 pb-10 sm:pb-12"
+        className="pt-14 pb-16 sm:pt-20 sm:pb-24"
         style={{
+          backgroundColor: '#3B3FD8',
           opacity: heroVisible ? 1 : 0,
           transform: heroVisible ? 'none' : 'translateY(20px)',
           transition: 'opacity 0.6s ease, transform 0.6s ease',
         }}
       >
-        <div className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl flex flex-col sm:flex-row sm:items-start sm:gap-12">
+        <div className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl flex flex-col sm:flex-row sm:items-start sm:gap-14">
           {/* Portrait mobile */}
-          <div className="flex sm:hidden mb-5">
+          <div className="flex sm:hidden mb-6">
             <div
-              className="w-20 h-20 rounded-full overflow-hidden"
-              style={{ border: '2px solid oklch(0.45 0.22 264)', boxShadow: '4px 4px 0 oklch(0.94 0.04 264)' }}
+              className="w-24 h-24 rounded-full overflow-hidden"
+              style={{ border: '3px solid rgba(255,255,255,0.85)', boxShadow: '5px 5px 0 rgba(255,255,255,0.15)' }}
             >
               <img src={PORTRAIT_URL} alt="Helena Hadjitournos" className="w-full h-full object-cover" />
             </div>
@@ -141,42 +142,51 @@ export default function Home() {
           {/* Texte */}
           <div className="flex-1">
             <p
-              className="text-xs font-medium tracking-[0.18em] uppercase mb-3"
-              style={{ color: 'oklch(0.45 0.22 264)', fontFamily: 'DM Sans, sans-serif' }}
+              className="text-xs font-medium tracking-[0.2em] uppercase mb-4"
+              style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'DM Sans, sans-serif' }}
             >
               Product Designer, Région nantaise
             </p>
             <h1
-              className="text-3xl sm:text-4xl mb-4"
-              style={{ fontFamily: 'Jost, sans-serif', fontWeight: 700, color: 'oklch(0.13 0.02 264)', lineHeight: 1.15, letterSpacing: '-0.02em' }}
+              className="text-4xl sm:text-6xl md:text-7xl mb-6"
+              style={{ fontFamily: 'Jost, sans-serif', fontWeight: 700, color: '#fff', lineHeight: 1.02, letterSpacing: '-0.03em' }}
             >
               Helena<br />Hadjitournos
             </h1>
             <p
-              className="text-sm sm:text-base leading-relaxed mb-5 max-w-sm"
-              style={{ color: 'oklch(0.35 0.03 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
+              className="text-base sm:text-lg leading-relaxed mb-6 max-w-md"
+              style={{ color: 'rgba(255,255,255,0.85)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
             >
               Product Designer senior, spécialisée en discovery et design systems pour des produits SaaS B2B. Direction artistique en parallèle depuis 2019 : deux façons de résoudre le même problème, poser la bonne stratégie et lui donner une forme qui donne envie.
             </p>
-            <div className="flex gap-2 flex-wrap">
-              <span className="mission-tag">UX Research</span>
-              <span className="mission-tag">Product Design</span>
-              <span className="mission-tag">UI Design</span>
-              <span className="mission-tag">Design System</span>
-              <span className="mission-tag">Direction Artistique</span>
+            <div className="flex gap-2 flex-wrap mb-7">
+              {['UX Research', 'Product Design', 'UI Design', 'Design System', 'Direction Artistique'].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-3 py-1 rounded-full"
+                  style={{
+                    backgroundColor: 'rgba(255,255,255,0.12)',
+                    color: 'rgba(255,255,255,0.9)',
+                    fontFamily: 'DM Sans, sans-serif',
+                    letterSpacing: '0.02em',
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
-            <div className="mt-5 flex gap-3 flex-wrap items-center">
+            <div className="flex gap-3 flex-wrap items-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 transition-all"
-                style={{ backgroundColor: 'oklch(0.45 0.22 264)', color: '#fff', fontFamily: 'DM Sans, sans-serif', borderRadius: '2px' }}
+                style={{ backgroundColor: '#fff', color: '#3B3FD8', fontFamily: 'DM Sans, sans-serif', borderRadius: '2px' }}
               >
                 Me contacter
               </Link>
               <Link
                 href="/projets"
                 className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 transition-all"
-                style={{ color: 'oklch(0.45 0.22 264)', fontFamily: 'DM Sans, sans-serif', border: '1px solid oklch(0.45 0.22 264)', borderRadius: '2px' }}
+                style={{ color: '#fff', fontFamily: 'DM Sans, sans-serif', border: '1px solid rgba(255,255,255,0.5)', borderRadius: '2px' }}
               >
                 Voir tous les projets
               </Link>
@@ -186,8 +196,8 @@ export default function Home() {
           {/* Portrait desktop */}
           <div className="flex-shrink-0 hidden sm:block">
             <div
-              className="w-36 h-36 rounded-full overflow-hidden"
-              style={{ border: '3px solid oklch(0.45 0.22 264)', boxShadow: '6px 6px 0 oklch(0.94 0.04 264)' }}
+              className="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden"
+              style={{ border: '4px solid rgba(255,255,255,0.85)', boxShadow: '8px 8px 0 rgba(255,255,255,0.15)' }}
             >
               <img src={PORTRAIT_URL} alt="Helena Hadjitournos" className="w-full h-full object-cover" />
             </div>
