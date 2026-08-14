@@ -131,7 +131,7 @@ export default function PocLlmCarto() {
         {active === 'contexte' && (
           <section>
             {sectionTitle('Un terrain d\'exploration, pas un cahier des charges')}
-            {bodyText("Il n'y a pas eu de ticket, pas de brief formel pour ce sujet. C'est une exploration que j'ai menée de mon propre chef : comprendre comment l'intelligence artificielle pouvait s'intégrer utilement dans les applications du groupe Intescia, au-delà de l'effet de mode.")}
+            {bodyText("Il n'y a pas eu de ticket, pas de brief formel retraçant le détail du travail. Mais le sujet lui-même était bien un projet d'entreprise : un POC LLM Carto mené en interne pour évaluer comment l'intelligence artificielle pouvait s'intégrer utilement dans les applications du groupe Intescia, au-delà de l'effet de mode.")}
             <div className="my-4" />
             {bodyText("T360 a servi de cobaye. C'est l'outil sur lequel j'ai le plus de recul, avec la base d'utilisateurs la plus large et la plus grande diversité de profils. Idéal pour tester des hypothèses avant de penser à les généraliser à d'autres produits du portefeuille.")}
 
