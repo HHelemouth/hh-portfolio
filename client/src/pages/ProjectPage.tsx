@@ -656,10 +656,16 @@ const projects: Record<string, Project> = {
     subtitle: 'Identité visuelle, Direction artistique',
     year: '2020',
     tags: ['Identité visuelle', 'Logo', 'Direction artistique', 'Print'],
-    hero: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028937907/jeldpRkzsskdmBoA.png',
+    hero: `${import.meta.env.BASE_URL}elements/hero.jpg`,
     heroAlt: 'Logo Elements sur fond de bois et métal, créations artisanales bois et métal',
     intro: 'Elements, c\'est le projet d\'un artisan passionné qui a refait sa maison et a décidé d\'en faire son métier. Fred propose du mobilier sur mesure et de l\'optimisation d\'habitat en alliant deux matériaux nobles : le bois et le métal. Un vrai homme des champs qui a du goût. Mission : lui créer une identité à la hauteur de son savoir-faire.',
     sections: [
+      {
+        type: 'image',
+        image: `${import.meta.env.BASE_URL}elements/hero.jpg`,
+        imageAlt: 'Logo Elements sur fond de bois et métal, créations artisanales bois et métal',
+        caption: 'Le logo Elements sur fond de chutes de bois brut, matière première de l\'atelier',
+      },
       {
         type: 'text',
         title: 'Le brief',

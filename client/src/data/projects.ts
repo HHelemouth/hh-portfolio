@@ -111,7 +111,7 @@ export const projects: ProjectEntry[] = [
     label: 'Elements',
     year: '2020',
     tags: ['Identité visuelle', 'Logo', 'Direction artistique'],
-    thumb: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663028937907/jeldpRkzsskdmBoA.png',
+    thumb: `${import.meta.env.BASE_URL}elements/hero.jpg`,
     color: '#2D5A3D',
   },
   {
@@ -119,8 +119,8 @@ export const projects: ProjectEntry[] = [
     label: 'TAO',
     year: '2019',
     tags: ['Direction artistique', 'Identité visuelle', 'Logo'],
-    cardSubtitle: 'Direction Artistique · Identité visuelle',
-    cardIcon: 'compass',
+    thumb: `${import.meta.env.BASE_URL}tao/logo.png`,
+    thumbFit: 'contain',
     color: '#2BD081',
   },
   {
