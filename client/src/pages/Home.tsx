@@ -39,7 +39,7 @@ const chapters: Chapter[] = [
     eyebrow: '03 : Vivre avec son temps',
     title: 'IA appliquée au produit',
     body: "L'IA m'intéresse comme outil de réflexion, pas comme argument marketing. Chez Explore, j'ai exploré la recherche en langage naturel sur un POC dont les fondations ont été reprises en production sur OneSearch. En parallèle, j'ai construit seule L'Interprète de Rêves, de l'idée à la mise en ligne, pour comprendre de l'intérieur ce qu'implique le design avec l'IA plutôt que pour elle.",
-    slugs: ['interprete-de-reves'],
+    slugs: ['interprete-de-reves', 'poc-llm-carto'],
   },
   {
     eyebrow: '04 : Organiser et structurer',

@@ -13,6 +13,7 @@ const projects = [
   { slug: 'territoire-360', label: 'Territoire 360', year: '2024' },
   { slug: 'proveil', label: 'Proveil', year: '2023' },
   { slug: 'interprete-de-reves', label: "L'Interprète de Rêves", year: '2025', isNew: true },
+  { slug: 'poc-llm-carto', label: 'Exploration IA & Cartographie', year: '2025', isNew: true },
   { slug: 'fioulreduc', label: 'Fioulreduc', year: '2023' },
   { slug: 'swaneo', label: 'Swaneo', year: '2023' },
   { slug: 'qg-media-libre', label: 'QG — Média Libre', year: '2020' },

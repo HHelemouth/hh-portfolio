@@ -15,7 +15,7 @@ export interface ProjectEntry {
   thumb?: string;
   thumbFit?: 'cover' | 'contain';
   cardSubtitle?: string;
-  cardIcon?: 'design-system' | 'compass' | 'moon';
+  cardIcon?: 'design-system' | 'compass' | 'moon' | 'map';
   color: string;
 }
 
@@ -65,6 +65,16 @@ export const projects: ProjectEntry[] = [
     cardSubtitle: 'IA · Product Building',
     cardIcon: 'moon',
     color: '#8B4513',
+  },
+  {
+    slug: 'poc-llm-carto',
+    label: 'Exploration IA & Cartographie',
+    year: '2025',
+    isNew: true,
+    tags: ['R&D', 'Intelligence Artificielle', 'UX Research'],
+    cardSubtitle: 'POC LLM · Recherche cartographique',
+    cardIcon: 'map',
+    color: '#1F6F5C',
   },
   {
     slug: 'fioulreduc',

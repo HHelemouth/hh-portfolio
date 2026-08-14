@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Projets from "./pages/Projets";
 import CityManager from "./pages/CityManager";
+import PocLlmCarto from "./pages/PocLlmCarto";
 import Proveil from "./pages/Proveil";
 import ProjectPage from "./pages/ProjectPage";
 import Contact from './pages/Contact';
@@ -38,6 +39,7 @@ function Router() {
           <Route path="/projet/city-manager" component={CityManager} />
           <Route path="/projet/design-system" component={DesignSystem} />
           <Route path="/projet/proveil" component={Proveil} />
+          <Route path="/projet/poc-llm-carto" component={PocLlmCarto} />
           <Route path="/projet/:slug" component={ProjectPage} />
           <Route path="/contact" component={Contact} />
           <Route path="/404" component={NotFound} />

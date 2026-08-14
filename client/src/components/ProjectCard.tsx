@@ -1,9 +1,9 @@
 import { Link } from 'wouter';
 import { useEffect, useRef, useState } from 'react';
-import { Component, Compass, Moon } from 'lucide-react';
+import { Component, Compass, Moon, Map } from 'lucide-react';
 import type { ProjectEntry } from '@/data/projects';
 
-const ICONS = { 'design-system': Component, compass: Compass, moon: Moon };
+const ICONS = { 'design-system': Component, compass: Compass, moon: Moon, map: Map };
 
 export function useIntersection(ref: React.RefObject<Element | null>) {
   const [visible, setVisible] = useState(false);
