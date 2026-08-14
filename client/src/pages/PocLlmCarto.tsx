@@ -1,5 +1,5 @@
 /*
-  PocLlmCarto.tsx — Cas d'étude : Exploration IA appliquée à la cartographie
+  PocLlmCarto.tsx, Cas d'étude : Exploration IA appliquée à la cartographie
   Charte : Jost pour les titres, DM Sans pour le corps, bleu #3B3FD8 en accent
   Structure : 4 chapitres séquencés
   1. Contexte
@@ -63,6 +63,47 @@ function CaseImage({ src, alt, caption }: { src: string; alt: string; caption?: 
           {caption}
         </p>
       )}
+    </div>
+  );
+}
+
+function ImagePair({ images }: { images: { src: string; alt: string; caption?: string }[] }) {
+  return (
+    <div className="grid grid-cols-2 gap-4 my-8">
+      {images.map((img, i) => (
+        <div key={i}>
+          <div className="overflow-hidden rounded-sm" style={{ border: '1px solid oklch(0.91 0.02 264)' }}>
+            <img src={img.src} alt={img.alt} className="w-full h-auto block" loading="lazy" />
+          </div>
+          {img.caption && (
+            <p className="text-xs mt-2" style={{ color: 'oklch(0.52 0.04 264)', fontFamily: 'DM Sans, sans-serif', fontStyle: 'italic' }}>
+              {img.caption}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Verbatim({ text }: { text: string }) {
+  return (
+    <div
+      className="rounded-sm px-5 py-4 my-4"
+      style={{ backgroundColor: 'oklch(0.95 0.03 264)', borderLeft: '3px solid #8D9DFF' }}
+    >
+      <p
+        className="text-sm italic"
+        style={{ color: 'oklch(0.3 0.06 264)', fontFamily: 'DM Sans, sans-serif', lineHeight: 1.7 }}
+      >
+        « {text} »
+      </p>
+      <p
+        className="text-xs mt-2 uppercase tracking-widest"
+        style={{ color: 'oklch(0.5 0.06 264)', fontFamily: 'DM Sans, sans-serif' }}
+      >
+        Verbatim utilisateur, test client
+      </p>
     </div>
   );
 }
@@ -195,18 +236,21 @@ export default function PocLlmCarto() {
               caption="Mode « Syntaxe avancée » : opérateurs booléens explicites (AND, OR, NEAR), pour les utilisateurs experts qui pensent déjà en requêtes"
             />
 
-            {bodyText("Le mode « Recherche libre » est celui qui change vraiment la donne : l'utilisateur formule sa demande en une phrase, et l'interface la traduit en clair avant de lancer la recherche — avec la possibilité de basculer sur la syntaxe technique équivalente pour vérifier ou affiner.")}
+            {bodyText("Le mode « Recherche libre » est celui qui change vraiment la donne : l'utilisateur formule sa demande en une phrase, et l'interface la traduit en clair avant de lancer la recherche, avec la possibilité de basculer sur la syntaxe technique équivalente pour vérifier ou affiner.")}
 
-            <CaseImage
-              src={`${import.meta.env.BASE_URL}poc-llm-carto/traduction-libre.jpg`}
-              alt="Recherche libre avec traduction en langage clair des critères compris par le système"
-              caption="« Je souhaite une recherche sur l'opposition aux projets éoliens » — traduit en critères explicites et modifiables individuellement"
-            />
-
-            <CaseImage
-              src={`${import.meta.env.BASE_URL}poc-llm-carto/traduction-syntaxe.jpg`}
-              alt="La même requête affichée en syntaxe booléenne technique"
-              caption="La même requête, vue en syntaxe technique (AND / OR / NEAR) — un simple bouton bascule entre les deux lectures"
+            <ImagePair
+              images={[
+                {
+                  src: `${import.meta.env.BASE_URL}poc-llm-carto/traduction-libre.jpg`,
+                  alt: "Recherche libre avec traduction en langage clair des critères compris par le système",
+                  caption: "Traduction en clair, critères explicites et modifiables individuellement",
+                },
+                {
+                  src: `${import.meta.env.BASE_URL}poc-llm-carto/traduction-syntaxe.jpg`,
+                  alt: "La même requête affichée en syntaxe booléenne technique",
+                  caption: "La même requête en syntaxe technique (AND / OR / NEAR)",
+                },
+              ]}
             />
 
             {bodyText("Cette double lecture (traduction lisible ↔ syntaxe technique) est le cœur de l'hypothèse testée : donner confiance dans ce que l'IA a compris, sans jamais cacher la mécanique à qui veut la voir.")}
@@ -224,17 +268,27 @@ export default function PocLlmCarto() {
             <h3 className="text-lg font-semibold mt-8 mb-4" style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)' }}>
               La traduction en clair, plébiscitée
             </h3>
-            {bodyText("Le retour le plus net a porté sur la vue \"traduction\" de la recherche libre : voir sa phrase reformulée en critères explicites rassure, parce qu'une erreur de compréhension de l'IA devient immédiatement visible. Un interlocuteur a même formulé l'ambition ultime : que le système pose lui-même des questions de clarification avant de lancer la recherche, sur le modèle des outils de recherche approfondie qu'il utilise déjà par ailleurs — une seule recherche, affinée par étapes, plutôt que reformulée à chaque fois depuis zéro.")}
+            {bodyText("Le retour le plus net a porté sur la vue \"traduction\" de la recherche libre : voir sa phrase reformulée en critères explicites rassure, parce qu'une erreur de compréhension de l'IA devient immédiatement visible.")}
+            <Verbatim text="Oui, c'est une bonne approche. C'est plus facile pour certaines personnes de mettre une phrase en expliquant, et après que ce soit traduit par des mots-clés, ça me semble bien." />
+            <Verbatim text="Finalement, la traduction, elle me va bien. Je pense que s'il y avait une erreur, on le verrait dans la traduction." />
+            {bodyText("Un interlocuteur a même formulé l'ambition ultime : que le système pose lui-même des questions de clarification avant de lancer la recherche, sur le modèle des outils de recherche approfondie qu'il utilise déjà par ailleurs, une seule recherche affinée par étapes plutôt que reformulée à chaque fois depuis zéro.")}
+            <Verbatim text="Le truc ultime, ça serait de pouvoir partir d'une recherche libre très générale, et qu'il y ait un approfondissement, un bot qui dise : attendez, est-ce que vous voulez uniquement tel type de projet ou tel autre ? Ça permet de préciser encore plus. Avec un seul mode de recherche, j'arrive à quelque chose de très affiné." />
 
             <h3 className="text-lg font-semibold mt-8 mb-4" style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)' }}>
               Le mode mot par mot, jugé superflu par les profils avancés
             </h3>
             {bodyText("Un profil très à l'aise avec la syntaxe technique a été clair : il irait spontanément vers la syntaxe avancée plutôt que de passer par un mode intermédiaire mot par mot. Le mode thématique, lui, n'a convaincu qu'une fois recontextualisé comme un point de départ personnalisable, pas comme un premier réflexe de recherche.")}
+            <Verbatim text="Naturellement, j'aurais tendance à aller tout de suite vers la syntaxe avancée. Je pense que je n'utiliserais pas forcément le mot par mot." />
+            <Verbatim text="Ce n'est pas le plus intuitif pour moi, j'irais peut-être moins vers ce mode de recherche-là." />
 
             <h3 className="text-lg font-semibold mt-8 mb-4" style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)' }}>
               La traçabilité, non négociable
             </h3>
-            {bodyText("Sur les fonctionnalités IA de synthèse, le point qui revient systématiquement est la source : pouvoir vérifier d'où vient une affirmation, avec la date, plutôt que de faire confiance à une synthèse qui pourrait figer une position ancienne comme si elle était toujours d'actualité. La concision a aussi été pointée : un résumé IA trop long, qui noie l'information plutôt que de la condenser, était vécu comme un vrai irritant plutôt qu'un gain de temps.")}
+            {bodyText("Sur les fonctionnalités IA de synthèse, le point qui revient systématiquement est la source : pouvoir vérifier d'où vient une affirmation, avec la date, plutôt que de faire confiance à une synthèse qui pourrait figer une position ancienne comme si elle était toujours d'actualité.")}
+            <Verbatim text="Ça serait top que l'IA aille chercher dans toutes ses déclarations passées, et qu'on ait le lien pour retourner à l'article ou à la délibération qui le cite, avec la date." />
+            <Verbatim text="Le risque, c'est qu'un acteur ait pris une position à un moment donné, que l'IA la lui attribue, et qu'on garde ça bien en tête alors qu'il a changé d'avis depuis. De ce que je comprends de l'IA, il faut l'utiliser, mais pas la croire les yeux fermés." />
+            {bodyText("La concision a aussi été pointée : un résumé IA trop long, qui noie l'information plutôt que de la condenser, était vécu comme un vrai irritant plutôt qu'un gain de temps.")}
+            <Verbatim text="Ce qui me frustre parfois avec les IA, c'est qu'on leur pose une question et elles pondent deux paragraphes de blabla pour, au final, ne pas avoir beaucoup d'infos. Elles ne vont pas assez vite droit au but." />
 
             <h3 className="text-lg font-semibold mt-8 mb-4" style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)' }}>
               Ce que ça m'a appris
