@@ -9,8 +9,10 @@ import { ArrowLeft } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/data/projects';
+import { useLanguage } from '@/lib/i18n';
 
 export default function Projets() {
+  const { lang } = useLanguage();
   return (
     <>
     <SEOHead title="Tous les projets" canonicalPath="/projets" />
@@ -21,19 +23,21 @@ export default function Projets() {
           className="inline-flex items-center gap-2 text-xs mb-6 transition-opacity hover:opacity-70"
           style={{ color: 'oklch(0.5 0.04 264)', fontFamily: 'DM Sans, sans-serif' }}
         >
-          <ArrowLeft size={13} /> Retour à l'accueil
+          <ArrowLeft size={13} /> {lang === 'en' ? 'Back to home' : "Retour à l'accueil"}
         </Link>
         <h1
           className="text-2xl sm:text-4xl font-bold mb-2"
           style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.13 0.02 264)', letterSpacing: '-0.02em' }}
         >
-          Tous les projets
+          {lang === 'en' ? 'All projects' : 'Tous les projets'}
         </h1>
         <p
           className="text-sm sm:text-base"
           style={{ color: 'oklch(0.4 0.03 264)', fontFamily: 'DM Sans, sans-serif' }}
         >
-          {projects.length} projets, du lancement produit SaaS B2B à la direction artistique.
+          {lang === 'en'
+            ? `${projects.length} projects, from B2B SaaS product launches to art direction.`
+            : `${projects.length} projets, du lancement produit SaaS B2B à la direction artistique.`}
         </p>
       </header>
 

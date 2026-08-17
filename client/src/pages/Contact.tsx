@@ -6,10 +6,13 @@
 
 import { Link } from 'wouter';
 import SEOHead from '@/components/SEOHead';
+import { useLanguage } from '@/lib/i18n';
 
 const PORTRAIT_URL = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/portrait_060f4807.jpg';
 
 export default function Contact() {
+  const { lang } = useLanguage();
+  const isEn = lang === 'en';
   return (
     <>
     <SEOHead
@@ -24,7 +27,7 @@ export default function Contact() {
           className="inline-flex items-center gap-2 text-xs mb-8 sm:mb-10 transition-colors"
           style={{ color: 'oklch(0.5 0.04 264)', fontFamily: 'DM Sans, sans-serif' }}
         >
-          ← Retour aux projets
+          {isEn ? '← Back to projects' : '← Retour aux projets'}
         </Link>
 
         {/* Header — empilé sur mobile, côte à côte sur desktop */}
@@ -47,13 +50,15 @@ export default function Contact() {
               className="text-2xl sm:text-3xl mb-2"
               style={{ fontFamily: 'Jost, sans-serif', fontWeight: 700, color: 'oklch(0.13 0.02 264)', lineHeight: 1.2 }}
             >
-              Travaillons ensemble
+              {isEn ? "Let's work together" : 'Travaillons ensemble'}
             </h1>
             <p
               className="text-sm sm:text-base"
               style={{ color: 'oklch(0.35 0.03 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
             >
-              Product Designer en région nantaise, disponible pour des missions freelance ou des opportunités en CDI.
+              {isEn
+                ? 'Product Designer based in the Nantes area, available for freelance work or full-time opportunities.'
+                : 'Product Designer en région nantaise, disponible pour des missions freelance ou des opportunités en CDI.'}
             </p>
           </div>
         </div>
@@ -61,8 +66,8 @@ export default function Contact() {
         {/* Infos de contact */}
         <div className="space-y-3 mb-10 sm:mb-12">
           {[
-            { label: 'Email', value: 'hhadjitournos@gmail.com', href: 'mailto:hhadjitournos@gmail.com' },
-            { label: 'Localisation', value: 'Région nantaise', href: null },
+            { label: isEn ? 'Email' : 'Email', value: 'hhadjitournos@gmail.com', href: 'mailto:hhadjitournos@gmail.com' },
+            { label: isEn ? 'Location' : 'Localisation', value: isEn ? 'Nantes area, France' : 'Région nantaise', href: null },
           ].map((item) => (
             <div
               key={item.label}
@@ -104,22 +109,23 @@ export default function Contact() {
             className="section-title text-base sm:text-lg mb-4"
             style={{ fontFamily: 'Jost, sans-serif', fontWeight: 700, color: 'oklch(0.13 0.02 264)' }}
           >
-            À propos
+            {isEn ? 'About' : 'À propos'}
           </h2>
           <p
             className="text-sm leading-relaxed mb-3"
             style={{ color: 'oklch(0.28 0.05 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
           >
-            Product Designer avec plus de 8 ans d'expérience, je travaille sur des produits digitaux B2B et B2C,
-            de la phase de discovery jusqu'à l'interface finale. Actuellement UX/UI Designer chez Explore à Carquefou,
-            je suis garante de 5 produits digitaux et de leurs design systems.
+            {isEn
+              ? "Product Designer with 8+ years of experience, I work on B2B and B2C digital products, from discovery through to the final interface. Currently UX/UI Designer at Explore in Carquefou, I'm responsible for 5 digital products and their design systems."
+              : "Product Designer avec plus de 8 ans d'expérience, je travaille sur des produits digitaux B2B et B2C, de la phase de discovery jusqu'à l'interface finale. Actuellement UX/UI Designer chez Explore à Carquefou, je suis garante de 5 produits digitaux et de leurs design systems."}
           </p>
           <p
             className="text-sm leading-relaxed"
             style={{ color: 'oklch(0.28 0.05 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
           >
-            Ce qui me motive : être impliquée en amont, définir les bons problèmes avant de les résoudre,
-            et travailler sur des produits qui ont un impact réel sur leurs utilisateurs.
+            {isEn
+              ? "What drives me: being involved early, defining the right problems before solving them, and working on products that make a real difference for their users."
+              : "Ce qui me motive : être impliquée en amont, définir les bons problèmes avant de les résoudre, et travailler sur des produits qui ont un impact réel sur leurs utilisateurs."}
           </p>
           <div className="flex flex-wrap gap-2 mt-5">
             <span className="mission-tag">UX Research</span>
