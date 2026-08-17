@@ -111,8 +111,19 @@ export default function SideNav() {
         })}
       </ul>
 
-      {/* Contact en bas */}
-      <div className="mt-6 pt-6" style={{ borderTop: '1px solid oklch(0.91 0.02 264)' }}>
+      {/* CV & Contact en bas */}
+      <div className="mt-6 pt-6 flex flex-col gap-2" style={{ borderTop: '1px solid oklch(0.91 0.02 264)' }}>
+        <Link
+          href="/cv"
+          className="text-sm transition-colors"
+          style={{
+            fontFamily: 'DM Sans, sans-serif',
+            color: location === '/cv' ? 'oklch(0.45 0.22 264)' : 'oklch(0.13 0.02 264)',
+            fontWeight: location === '/cv' ? 500 : 400,
+          }}
+        >
+          CV
+        </Link>
         <Link
           href="/contact"
           className="text-sm transition-colors"

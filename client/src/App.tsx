@@ -13,6 +13,7 @@ import ElmCodata from "./pages/ElmCodata";
 import Proveil from "./pages/Proveil";
 import ProjectPage from "./pages/ProjectPage";
 import Contact from './pages/Contact';
+import CV from './pages/CV';
 import DesignSystem from './pages/DesignSystem';
 import SideNav from './components/SideNav';
 import MobileNav from './components/MobileNav';
@@ -56,6 +57,7 @@ function Router() {
               <Route path="/projet/elm-codata" component={ElmCodata} />
               <Route path="/projet/:slug" component={ProjectPage} />
               <Route path="/contact" component={Contact} />
+              <Route path="/cv" component={CV} />
               <Route path="/404" component={NotFound} />
               <Route component={NotFound} />
             </Switch>

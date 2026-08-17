@@ -136,7 +136,14 @@ export default function MobileNav() {
                 </li>
               ))}
             </ul>
-            <div style={{ borderTop: '1px solid oklch(0.91 0.02 264)', paddingTop: '1.5rem' }}>
+            <div style={{ borderTop: '1px solid oklch(0.91 0.02 264)', paddingTop: '1.5rem' }} className="flex flex-col gap-3">
+              <Link
+                href="/cv"
+                onClick={() => setOpen(false)}
+                style={{ fontFamily: 'DM Sans, sans-serif', color: 'oklch(0.13 0.02 264)', fontSize: '0.95rem' }}
+              >
+                CV
+              </Link>
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
