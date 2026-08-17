@@ -6,6 +6,8 @@
 
 import { Link, useLocation } from 'wouter';
 import TallyLogo from './TallyLogo';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/lib/i18n';
 
 const projects = [
   { slug: 'city-manager', label: 'City Manager', year: '2024', isNew: true },
@@ -27,6 +29,7 @@ const projects = [
 
 export default function SideNav() {
   const [location] = useLocation();
+  const { lang } = useLanguage();
 
   return (
     <nav
@@ -34,9 +37,13 @@ export default function SideNav() {
       style={{ borderColor: 'oklch(0.91 0.02 264)' }}
     >
       {/* Logo */}
-      <Link href="/" className="mb-10 block">
+      <Link href="/" className="mb-6 block">
         <TallyLogo mode="color" size={56} />
       </Link>
+
+      <div className="mb-8">
+        <LanguageSwitcher />
+      </div>
 
       {/* Lien Work */}
       <div className="mb-3">
@@ -58,7 +65,7 @@ export default function SideNav() {
           backgroundColor: location === '/projets' ? 'oklch(0.94 0.04 264)' : 'transparent',
         }}
       >
-        Tous les projets ↗
+        {lang === 'en' ? 'All projects ↗' : 'Tous les projets ↗'}
       </Link>
 
       {/* Liste des projets */}

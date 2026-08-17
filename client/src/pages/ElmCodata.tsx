@@ -81,13 +81,22 @@ export default function ElmCodata() {
 
       <CaseStudyHeader
         title="ELM by Codata"
+        titleEn="ELM by Codata"
         tags={['Lancement produit', 'Étude de marché', 'SaaS B2B', 'Product Discovery']}
+        tagsEn={['Product launch', 'Market research', 'B2B SaaS', 'Product Discovery']}
         description="Concevoir une plateforme en libre-service pour évaluer le potentiel d'un emplacement commercial, en autonomie et en quelques minutes."
+        descriptionEn="Designing a self-service platform to assess the potential of a commercial location, independently and in a few minutes."
         meta={[
           { label: 'Rôle', value: 'Product Designer' },
           { label: 'Contexte', value: 'Codata, groupe Intescia' },
           { label: 'Cible', value: 'Commerçants, réseaux de franchise' },
           { label: 'Type', value: 'Nouveau produit B2B, en production' },
+        ]}
+        metaEn={[
+          { label: 'Role', value: 'Product Designer' },
+          { label: 'Context', value: 'Codata, Intescia group' },
+          { label: 'Target', value: 'Retailers, franchise networks' },
+          { label: 'Type', value: 'New B2B product, in production' },
         ]}
       />
 

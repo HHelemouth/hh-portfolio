@@ -6,6 +6,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import TallyLogo from './TallyLogo';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/lib/i18n';
 
 const projects = [
   { slug: 'city-manager', label: 'City Manager', year: '2024', isNew: true },
@@ -28,6 +30,7 @@ const projects = [
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
+  const { lang } = useLanguage();
 
   return (
     <div className="md:hidden">
@@ -75,6 +78,9 @@ export default function MobileNav() {
           style={{ backgroundColor: '#fff' }}
         >
           <nav className="px-6 py-8">
+            <div className="mb-6">
+              <LanguageSwitcher />
+            </div>
             <p
               className="text-xs uppercase tracking-widest mb-4"
               style={{ color: 'oklch(0.5 0.04 264)', fontFamily: 'DM Sans, sans-serif' }}
@@ -92,7 +98,7 @@ export default function MobileNav() {
                 backgroundColor: location === '/projets' ? 'oklch(0.94 0.04 264)' : 'transparent',
               }}
             >
-              Tous les projets ↗
+              {lang === 'en' ? 'All projects ↗' : 'Tous les projets ↗'}
             </Link>
             <ul className="space-y-1 mb-8">
               {projects.map((p) => (

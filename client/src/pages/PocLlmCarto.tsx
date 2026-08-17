@@ -122,13 +122,22 @@ export default function PocLlmCarto() {
 
       <CaseStudyHeader
         title="Exploration IA appliquée à la cartographie"
+        titleEn="AI applied to mapping, an exploration"
         tags={['R&D', 'Intelligence Artificielle', 'UX Research', 'Exploration produit']}
+        tagsEn={['R&D', 'Artificial Intelligence', 'UX Research', 'Product exploration']}
         description="Explorer comment l'IA peut transformer la recherche de données dans les outils du groupe Intescia, avec T360 comme terrain d'expérimentation."
+        descriptionEn="Exploring how AI can transform data search across the Intescia group's tools, using T360 as the testing ground."
         meta={[
           { label: 'Rôle', value: 'Product Designer, Exploration R&D' },
           { label: 'Contexte', value: 'Groupe Intescia' },
           { label: 'Terrain', value: 'T360 (cobaye du process)' },
           { label: 'Type', value: 'POC, exploration produit' },
+        ]}
+        metaEn={[
+          { label: 'Role', value: 'Product Designer, R&D exploration' },
+          { label: 'Context', value: 'Intescia group' },
+          { label: 'Testing ground', value: 'T360 (first product to test on)' },
+          { label: 'Type', value: 'POC, product exploration' },
         ]}
       />
 

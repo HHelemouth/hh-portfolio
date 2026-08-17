@@ -17,6 +17,7 @@ import DesignSystem from './pages/DesignSystem';
 import SideNav from './components/SideNav';
 import MobileNav from './components/MobileNav';
 import ScrollToTop from './components/ScrollToTop';
+import { LanguageProvider } from './lib/i18n';
 
 // Base path du site sur GitHub Pages : https://hhelemouth.github.io/hh-design-portfolio/
 const BASE_PATH = '/hh-portfolio';
@@ -68,6 +69,7 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
+      <LanguageProvider>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
@@ -76,6 +78,7 @@ function App() {
           </WouterRouter>
         </TooltipProvider>
       </ThemeProvider>
+      </LanguageProvider>
     </ErrorBoundary>
   );
 }

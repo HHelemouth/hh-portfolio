@@ -75,13 +75,22 @@ export default function CityManager() {
       {/* Hero */}
       <CaseStudyHeader
         title="City Manager"
+        titleEn="City Manager"
         tags={['Étude de marché', 'Product Discovery', 'UX Research', 'Lancement produit']}
+        tagsEn={['Market research', 'Product Discovery', 'UX Research', 'Product launch']}
         description="Concevoir un outil SaaS pour les managers de centre-ville, de la discovery à la vision produit, avec l'IA comme partenaire de travail."
+        descriptionEn="Designing a SaaS tool for city-center managers, from discovery to product vision, with AI as a working partner."
         meta={[
           { label: 'Rôle', value: 'Product Designer, Discovery' },
           { label: 'Contexte', value: 'Codata, groupe Intescia' },
           { label: 'Équipe', value: 'Codata (Intescia)' },
           { label: 'Type', value: 'Nouveau marché B2B' },
+        ]}
+        metaEn={[
+          { label: 'Role', value: 'Product Designer, Discovery' },
+          { label: 'Context', value: 'Codata, Intescia group' },
+          { label: 'Team', value: 'Codata (Intescia)' },
+          { label: 'Type', value: 'New B2B market' },
         ]}
       />
 
