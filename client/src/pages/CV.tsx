@@ -43,7 +43,7 @@ const EXPERIENCE = [
     role: { fr: 'Product Builder IA', en: 'AI Product Builder' },
     company: "L'Interprète de Rêves",
     location: { fr: 'Projet personnel, Nantes', en: 'Personal project, Nantes' },
-    period: { fr: '2024, 2026', en: '2024, 2026' },
+    period: { fr: '2026', en: '2026' },
     desc: {
       fr: "Conception et développement autonome d'une application web d'analyse symbolique des rêves par IA, de l'idée à la mise en production.",
       en: "Independently designed and built an AI-powered web application for symbolic dream analysis, from idea to production.",
