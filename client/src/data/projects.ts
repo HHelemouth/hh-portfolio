@@ -48,7 +48,7 @@ export const projects: ProjectEntry[] = [
     label: 'City Manager',
     year: '2024',
     tags: ['Étude de marché', 'Lancement produit', 'SaaS B2B'],
-    categories: ['produit-saas'],
+    categories: ['produit-saas', 'ux-research'],
     isNew: true,
     thumb: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80',
     color: '#3B3FD8',
