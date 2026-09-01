@@ -456,6 +456,117 @@ export default function CityManager() {
               en: "The rule I set for myself: every piece of information had to be reachable within 2 clicks, from anywhere in the interface.",
             })}
 
+            {h3(lang, { fr: "L'arborescence du site", en: 'Site sitemap' })}
+            {bodyText(lang, {
+              fr: "Le site s'organise autour d'un menu de navigation latéral persistant, avec 6 sections principales et 3 sections transversales. Au total : 12 pages réparties en 7 sections fonctionnelles.",
+              en: "The site is organized around a persistent side navigation menu, with 6 main sections and 3 cross-cutting sections. In total: 12 pages spread across 7 functional sections.",
+            })}
+
+            <div className="mt-8 mb-10">
+              {/* Racine */}
+              <div className="flex justify-center mb-6">
+                <div
+                  className="px-6 py-3 rounded-sm text-center"
+                  style={{ backgroundColor: '#3B3FD8' }}
+                >
+                  <span
+                    className="text-sm font-semibold"
+                    style={{ color: '#fff', fontFamily: 'Jost, sans-serif' }}
+                  >
+                    City Manager
+                  </span>
+                  <span className="block text-xs mt-0.5" style={{ color: 'oklch(0.85 0.04 264)' }}>
+                    {t(lang, { fr: '12 pages · 7 sections', en: '12 pages · 7 sections' })}
+                  </span>
+                </div>
+              </div>
+
+              {/* Sections principales */}
+              <div
+                className="grid mb-6"
+                style={{
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+                  gap: '0.75rem',
+                }}
+              >
+                {[
+                  { name: { fr: 'Tableau de bord', en: 'Dashboard' }, pages: { fr: '1 page', en: '1 page' } },
+                  { name: { fr: 'Cartographie', en: 'Mapping' }, pages: { fr: '1 page', en: '1 page' } },
+                  { name: { fr: 'Locaux / Enseignes', en: 'Units / Brands' }, pages: { fr: '3 pages', en: '3 pages' } },
+                  { name: { fr: 'Contacts', en: 'Contacts' }, pages: { fr: '2 pages', en: '2 pages' } },
+                  { name: { fr: 'Projets', en: 'Projects' }, pages: { fr: '2 pages', en: '2 pages' } },
+                  { name: { fr: 'Événements', en: 'Events' }, pages: { fr: '2 pages', en: '2 pages' } },
+                  { name: { fr: 'Analyses', en: 'Analytics' }, pages: { fr: '1 page', en: '1 page' } },
+                ].map((s, i) => (
+                  <div key={i} className="flex flex-col items-center">
+                    <div className="w-px h-4" style={{ backgroundColor: 'oklch(0.85 0.02 264)' }} />
+                    <div
+                      className="w-full text-center px-3 py-3 rounded-sm"
+                      style={{ border: '1px solid oklch(0.88 0.02 264)', backgroundColor: '#fff' }}
+                    >
+                      <span
+                        className="block text-xs font-semibold"
+                        style={{ color: 'oklch(0.13 0.02 264)', fontFamily: 'Jost, sans-serif' }}
+                      >
+                        {t(lang, s.name)}
+                      </span>
+                      <span className="block text-[11px] mt-1" style={{ color: 'oklch(0.5 0.02 264)' }}>
+                        {t(lang, s.pages)}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Sections transversales */}
+              <div
+                className="rounded-sm p-5"
+                style={{ backgroundColor: 'oklch(0.97 0.01 264)', border: '1px dashed oklch(0.85 0.02 264)' }}
+              >
+                <span
+                  className="block text-xs font-semibold mb-3 uppercase tracking-wide"
+                  style={{ color: 'oklch(0.45 0.03 264)', fontFamily: 'Jost, sans-serif' }}
+                >
+                  {t(lang, { fr: 'Sections transversales', en: 'Cross-cutting sections' })}
+                </span>
+                <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+                  <div>
+                    <span className="block text-xs font-semibold mb-2" style={{ color: 'oklch(0.13 0.02 264)', fontFamily: 'Jost, sans-serif' }}>
+                      {t(lang, { fr: 'Profil (6 sous-pages)', en: 'Profile (6 sub-pages)' })}
+                    </span>
+                    <ul className="text-xs space-y-1" style={{ color: 'oklch(0.4 0.03 264)' }}>
+                      {[
+                        { fr: 'Mon profil', en: 'My profile' },
+                        { fr: 'Mes objectifs', en: 'My goals' },
+                        { fr: 'Mes notifications', en: 'My notifications' },
+                        { fr: 'Mes préférences', en: 'My preferences' },
+                        { fr: 'Aide & Documentation', en: 'Help & Documentation' },
+                        { fr: 'Déconnexion', en: 'Sign out' },
+                      ].map((item, i) => (
+                        <li key={i}>· {t(lang, item)}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <span className="block text-xs font-semibold mb-2" style={{ color: 'oklch(0.13 0.02 264)', fontFamily: 'Jost, sans-serif' }}>
+                      {t(lang, { fr: 'Paramètres', en: 'Settings' })}
+                    </span>
+                    <span className="block text-xs" style={{ color: 'oklch(0.4 0.03 264)' }}>
+                      {t(lang, { fr: 'Multi-villes, préférences de notification, sécurité', en: 'Multi-city, notification preferences, security' })}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="block text-xs font-semibold mb-2" style={{ color: 'oklch(0.13 0.02 264)', fontFamily: 'Jost, sans-serif' }}>
+                      {t(lang, { fr: 'Aide & Support', en: 'Help & Support' })}
+                    </span>
+                    <span className="block text-xs" style={{ color: 'oklch(0.4 0.03 264)' }}>
+                      {t(lang, { fr: 'Centre d\'aide, documentation, contact', en: 'Help center, documentation, contact' })}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {h3(lang, { fr: 'Les 4 modules structurants', en: 'The 4 core modules' })}
             <div className="space-y-3 mb-8">
               {[
