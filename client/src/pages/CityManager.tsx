@@ -541,6 +541,76 @@ export default function CityManager() {
                 </div>
               ))}
             </div>
+
+            {h3(lang, { fr: 'Cadrage produit : du MVP à la version complète', en: 'Product framing: from MVP to full version' }, 'mt-10')}
+            {bodyText(lang, {
+              fr: "Le cadrage ne s'est pas fait au niveau du produit dans son ensemble, mais module par module, en binôme avec la Product Manager. Pour chaque brique fonctionnelle, on a tranché ensemble ce qui relevait du strict nécessaire pour un MVP viable, ce qui pouvait attendre une phase d'évolution, et ce qui ne se justifiait qu'une fois le produit mature.",
+              en: "The framing wasn't done at the level of the product as a whole, but module by module, working closely with the Product Manager. For each functional block, we decided together what belonged in a viable MVP, what could wait for an evolution phase, and what only made sense once the product had matured.",
+            })}
+            {accent(lang, {
+              fr: "Le critère n'était jamais « est-ce que c'est une bonne idée », mais « est-ce que ça sert l'hypothèse qu'on teste en premier ».",
+              en: "The criterion was never \"is this a good idea\", but \"does this serve the hypothesis we're testing first\".",
+            })}
+
+            <div className="overflow-x-auto mt-8 rounded-sm" style={{ border: '1px solid oklch(0.91 0.02 264)' }}>
+              <table className="w-full text-sm" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+                <thead>
+                  <tr style={{ backgroundColor: 'oklch(0.94 0.04 264)' }}>
+                    {[
+                      { fr: 'Module', en: 'Module' },
+                      { fr: 'Phase 1 — MVP', en: 'Phase 1 — MVP' },
+                      { fr: 'Phases 2-3 — Évolution', en: 'Phases 2-3 — Evolution' },
+                    ].map((h, i) => (
+                      <th
+                        key={i}
+                        className="text-left px-4 py-3 font-semibold"
+                        style={{ color: 'oklch(0.13 0.02 264)', fontFamily: 'Jost, sans-serif' }}
+                      >
+                        {t(lang, h)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { module: { fr: 'Authentification & sécurité', en: 'Authentication & security' }, mvp: { fr: 'Compte, connexion, profil', en: 'Account, login, profile' }, later: { fr: 'RGPD avancé, permissions fines', en: 'Advanced GDPR, fine-grained permissions' } },
+                    { module: { fr: 'Tableau de bord', en: 'Dashboard' }, mvp: { fr: 'Widgets essentiels', en: 'Core widgets' }, later: { fr: 'Analyses prédictives', en: 'Predictive analytics' } },
+                    { module: { fr: 'Cartographie', en: 'Mapping' }, mvp: { fr: 'Carte interactive de base', en: 'Basic interactive map' }, later: { fr: 'Calques avancés, analyse spatiale', en: 'Advanced layers, spatial analysis' } },
+                    { module: { fr: 'Locaux', en: 'Retail units' }, mvp: { fr: 'Fiche, liste, filtres', en: 'Record, list, filters' }, later: { fr: 'Suggestions IA, enrichissement auto', en: 'AI suggestions, auto-enrichment' } },
+                    { module: { fr: 'Enseignes', en: 'Retail brands' }, mvp: { fr: 'Liste et fiche', en: 'List and record' }, later: { fr: 'Matching IA, veille automatique', en: 'AI matching, automated watch' } },
+                    { module: { fr: 'Contacts', en: 'Contacts' }, mvp: { fr: 'CRM basique', en: 'Basic CRM' }, later: { fr: 'Enrichissement et scoring auto', en: 'Auto-enrichment and scoring' } },
+                    { module: { fr: 'Projets', en: 'Projects' }, mvp: { fr: 'Vue Kanban', en: 'Kanban view' }, later: { fr: 'Communication intégrée, automatisation', en: 'Built-in communication, automation' } },
+                    { module: { fr: 'Objectifs', en: 'Goals' }, mvp: { fr: 'Suivi manuel, progression', en: 'Manual tracking, progress' }, later: { fr: 'Suggestions IA', en: 'AI suggestions' } },
+                    { module: { fr: 'Événements', en: 'Events' }, mvp: { fr: 'Calendrier, fiche', en: 'Calendar, record' }, later: { fr: "Mesure d'impact", en: 'Impact measurement' } },
+                    { module: { fr: 'Analyses', en: 'Analytics' }, mvp: { fr: 'Indicateurs de base', en: 'Core indicators' }, later: { fr: 'Benchmarking, prédictif', en: 'Benchmarking, predictive' } },
+                    { module: { fr: 'Gamification', en: 'Gamification' }, mvp: { fr: 'Niveaux, XP, crédits', en: 'Levels, XP, credits' }, later: { fr: 'Badges avancés', en: 'Advanced badges' } },
+                    { module: { fr: 'Notifications', en: 'Notifications' }, mvp: { fr: 'Centre basique', en: 'Basic center' }, later: { fr: 'Push, automatisées', en: 'Push, automated' } },
+                    { module: { fr: 'Responsive', en: 'Responsive' }, mvp: { fr: 'Adaptation mobile web', en: 'Mobile web adaptation' }, later: { fr: 'Application native', en: 'Native app' } },
+                    { module: { fr: 'Intégrations & offre', en: 'Integrations & plans' }, mvp: { fr: '—', en: '—' }, later: { fr: 'Intégrations externes, plans tarifaires', en: 'External integrations, pricing plans' } },
+                  ].map((row, i) => (
+                    <tr key={i} style={{ borderTop: '1px solid oklch(0.91 0.02 264)' }}>
+                      <td className="px-4 py-3 font-medium" style={{ color: 'oklch(0.13 0.02 264)' }}>{t(lang, row.module)}</td>
+                      <td className="px-4 py-3" style={{ color: 'oklch(0.35 0.03 264)' }}>{t(lang, row.mvp)}</td>
+                      <td className="px-4 py-3" style={{ color: 'oklch(0.35 0.03 264)' }}>{t(lang, row.later)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p
+              className="text-xs mt-3 italic"
+              style={{ color: 'oklch(0.5 0.02 264)', fontFamily: 'DM Sans, sans-serif' }}
+            >
+              {t(lang, {
+                fr: 'Vue simplifiée. Le détail fonctionnalité par fonctionnalité reste confidentiel.',
+                en: 'Simplified view. The feature-by-feature detail remains confidential.',
+              })}
+            </p>
+
+            {bodyText(lang, {
+              fr: "Ce travail de priorisation, mené fonctionnalité par fonctionnalité plutôt qu'en bloc, a permis de lancer un MVP réellement testable en quelques semaines, sans perdre de vue la vision produit à plus long terme.",
+              en: "This prioritization work, done feature by feature rather than in broad strokes, made it possible to ship a genuinely testable MVP within weeks, without losing sight of the longer-term product vision.",
+            }, 'mt-6')}
           </section>
         )}
 
