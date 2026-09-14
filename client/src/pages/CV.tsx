@@ -11,8 +11,8 @@ import { useLanguage } from '@/lib/i18n';
 const PORTRAIT_URL = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028937907/iXtA6pjR75eUXPkXiWpcD2/portrait_060f4807.jpg';
 
 const SKILLS = {
-  fr: ['Gouvernance multi-produits', 'Cadrage de projet', 'Stratégie design', 'Discovery, UX Research, Facilitation', 'Exploration R&D', "Intégration de l'IA", 'Design System', 'Lancement produit', "Encadrement, formation d'apprentis", 'Direction artistique et identité visuelle'],
-  en: ['Multi-product governance', 'Project scoping', 'Design strategy', 'Discovery, UX Research, Facilitation', 'R&D exploration', 'AI integration', 'Design System', 'Product launch', 'Mentoring, training juniors', 'Art direction and visual identity'],
+  fr: ['Référente Design System multi-produits', 'Cadrage de projet', 'Stratégie design', 'Discovery, UX Research, Facilitation', 'Exploration R&D', "Intégration de l'IA", 'Design System', 'Lancement produit', "Encadrement, formation d'apprentis", 'Direction artistique et identité visuelle'],
+  en: ['Multi-product Design System lead', 'Project scoping', 'Design strategy', 'Discovery, UX Research, Facilitation', 'R&D exploration', 'AI integration', 'Design System', 'Product launch', 'Mentoring, training juniors', 'Art direction and visual identity'],
 };
 
 const TOOLS = {
@@ -35,8 +35,8 @@ const EXPERIENCE = [
     location: { fr: 'Carquefou', en: 'Carquefou, France' },
     period: { fr: 'Juillet 2022, aujourd\'hui', en: 'July 2022, present' },
     desc: {
-      fr: "Unique Product Designer sur un portefeuille de 5 produits SaaS B2B, en appui sur les expertises métier de l'entreprise pour explorer de nouveaux marchés. Design system multi-produits, exploration R&D et IA.",
-      en: "Sole Product Designer across a portfolio of 5 B2B SaaS products, working alongside the company's business experts to explore new markets. Multi-product design system, R&D and AI exploration.",
+      fr: "Unique Product Designer sur un portefeuille de 5 produits SaaS B2B (+40 000 utilisateurs), en appui sur les expertises métier de l'entreprise pour explorer de nouveaux marchés. Design system multi-produits, exploration R&D et IA (fondations reprises en production sur OneSearch). Refonte d'un outil interne : +45% de productivité pour 80 collaborateurs.",
+      en: "Sole Product Designer across a portfolio of 5 B2B SaaS products (40,000+ users), working alongside the company's business experts to explore new markets. Multi-product design system, R&D and AI exploration (foundations later carried into production on OneSearch). Redesigned an internal tool: +45% productivity for 80 employees.",
     },
   },
   {
@@ -133,15 +133,23 @@ export default function CV() {
               Helena Hadjitournos
             </h1>
             <p
-              className="text-sm sm:text-base mb-3"
+              className="text-sm sm:text-base mb-1"
               style={{ color: 'oklch(0.42 0.22 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 500 }}
             >
               {isEn ? 'Senior Product Designer' : 'Senior Product Designer'}
             </p>
+            <p
+              className="text-xs sm:text-sm mb-3"
+              style={{ color: 'oklch(0.4 0.04 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
+            >
+              {isEn
+                ? 'Product discovery and AI applied to product, on B2B SaaS.'
+                : 'Discovery produit et IA appliquée au produit, sur du SaaS B2B.'}
+            </p>
             <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs" style={{ color: 'oklch(0.45 0.04 264)', fontFamily: 'DM Sans, sans-serif' }}>
               <span>{isEn ? 'Nantes area, France' : 'Île de Nantes'}</span>
               <a href="mailto:hhadjitournos@gmail.com" style={{ color: 'oklch(0.45 0.22 264)' }}>hhadjitournos@gmail.com</a>
-              <span>06 59 29 14 82</span>
+              <a href="tel:+33659291482" style={{ color: 'oklch(0.45 0.22 264)' }}>06 59 29 14 82</a>
             </div>
           </div>
         </div>
@@ -234,7 +242,9 @@ export default function CV() {
             {isEn ? 'Outside work' : 'En dehors du travail'}
           </h2>
           <p className="text-sm leading-relaxed" style={{ color: 'oklch(0.28 0.05 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}>
-            {isEn ? 'Photography, illustration, golf, volleyball.' : 'Photographie, illustration, golf, volley.'}
+            {isEn
+              ? 'Photography, illustration, golf, volleyball. Volunteer shipwright and crew on a historic sailing ship (Saint Michel II, La Cale 2 l\u2019Île, Nantes). Past craft work: tiny house building, naval carpentry, cabinetmaking.'
+              : 'Photographie, illustration, golf, volley. Charpenterie navale et navigation bénévole sur vieux gréement (Saint Michel II, La Cale 2 l\u2019Île, Nantes). Expériences artisanat : tiny house, charpente navale, menuiserie.'}
           </p>
         </section>
 
