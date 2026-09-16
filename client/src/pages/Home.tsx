@@ -20,35 +20,36 @@ interface Chapter {
   title: { fr: string; en: string };
   body: { fr: string; en: string };
   slugs: string[];
+  secondary?: boolean;
 }
 
 const chapters: Chapter[] = [
   {
-    eyebrow: { fr: '01 : Partir de zéro', en: '01: Starting from zero' },
+    eyebrow: { fr: '01 : Aller voir avant de proposer', en: '01: Going to see before proposing' },
+    title: { fr: "Terrain d'abord", en: 'Field first' },
+    body: {
+      fr: "Avant de proposer une solution, je vais voir ce qui coince, avec les gens concernés. Sur City Manager, j'ai testé le prototype en visio avec quatre managers de centre-ville, pour voir en direct où l'outil tenait et où il se fissurait. Sur Proveil, un test Hassenzahl et des entretiens d'usage avec les documentalistes. Sur l'exploration IA, des hypothèses de recherche en langage naturel testées directement avec des utilisateurs, des fondations reprises en production sur OneSearch. Dans les trois cas, la solution vient après avoir compris ce qui se joue réellement sur le terrain.",
+      en: "Before proposing a solution, I go see what's actually broken, with the people concerned. On City Manager, I tested the prototype over video calls with four city-center managers, watching live where the tool held up and where it cracked. On Proveil, a Hassenzahl test and usage interviews with the documentation team. On the AI exploration, natural language search hypotheses tested directly with users, foundations later carried into production on OneSearch. In all three cases, the solution comes after understanding what's really going on in the field.",
+    },
+    slugs: ['city-manager', 'proveil', 'poc-llm-carto'],
+  },
+  {
+    eyebrow: { fr: '02 : Partir de zéro', en: '02: Starting from zero' },
     title: { fr: 'Lancement de produit', en: 'Product launch' },
     body: {
-      fr: "J'aime lancer des produits sur des marchés pas encore adressés : le moment où il faut poser les bonnes hypothèses avant de coder quoi que ce soit. Chez Explore, j'ai porté 3 lancements de zéro. À chaque fois, même méthode : comprendre le métier, tester le problème avant la solution, itérer vite.",
-      en: "I like launching products on markets that aren't addressed yet: the moment when you have to get the hypotheses right before building anything. At Explore, I led 3 launches from scratch. Same method every time: understand the business, test the problem before the solution, iterate fast.",
+      fr: "J'aime lancer des produits sur des marchés pas encore adressés : le moment où il faut poser les bonnes hypothèses avant de coder quoi que ce soit. Chez Explore, j'ai porté plusieurs lancements de zéro, avec la même méthode à chaque fois : comprendre le métier, tester le problème avant la solution, itérer vite.",
+      en: "I like launching products on markets that aren't addressed yet: the moment when you have to get the hypotheses right before building anything. At Explore, I led several launches from scratch, with the same method every time: understand the business, test the problem before the solution, iterate fast.",
     },
-    slugs: ['city-manager', 'territoire-360', 'elm-codata'],
+    slugs: ['territoire-360', 'elm-codata'],
   },
   {
-    eyebrow: { fr: "02 : Améliorer l'existant", en: '02: Improving what exists' },
-    title: { fr: "Optimisation de l'expérience utilisateur", en: 'User experience optimization' },
+    eyebrow: { fr: '03 : Construire seule', en: '03: Building solo' },
+    title: { fr: 'Product Building', en: 'Product Building' },
     body: {
-      fr: "Un outil qui existe déjà se regarde différemment. Il faut d'abord mesurer ce qui coince avant de proposer quoi que ce soit. Sur Proveil et Fioulreduc, j'ai commencé par du terrain : tests utilisateurs, entretiens, mesure du temps passé sur chaque tâche. La refonte vient après, jamais avant.",
-      en: "An existing tool needs a different lens. You have to measure what's actually broken before proposing anything. On Proveil and Fioulreduc, I started on the ground: user testing, interviews, measuring time spent on each task. The redesign comes after, never before.",
+      fr: "En dehors du cadre professionnel, je conçois et je code, de l'idée à la mise en ligne. L'Interprète de Rêves est une application IA d'analyse symbolique des rêves que j'ai construite seule. Le même réflexe m'a servi pour un site de suivi de mon équipe de volley (résultats, compositions, stats par set) et un outil pour créer et analyser des tests UX (AttrakDiff, meCUE). Trois projets, la même méthode : comprendre le besoin, puis construire jusqu'au bout.",
+      en: "Outside my day job, I design and code, from idea to live product. L'Interprète de Rêves is an AI app for symbolic dream analysis that I built entirely on my own. The same instinct led me to build a tracking site for my volleyball team (results, lineups, set-by-set stats) and a tool for creating and analyzing UX tests (AttrakDiff, meCUE). Three projects, same method: understand the need, then build it through to the end.",
     },
-    slugs: ['proveil', 'fioulreduc'],
-  },
-  {
-    eyebrow: { fr: '03 : Vivre avec son temps', en: '03: Staying current' },
-    title: { fr: 'IA appliquée au produit', en: 'AI applied to product' },
-    body: {
-      fr: "L'IA m'intéresse comme outil de réflexion, pas comme argument marketing. Chez Explore, j'ai exploré la recherche en langage naturel sur un POC dont les fondations ont été reprises en production sur OneSearch. En parallèle, j'ai construit seule L'Interprète de Rêves, de l'idée à la mise en ligne, pour comprendre de l'intérieur ce que ça change de designer avec l'IA au quotidien, pas juste d'en parler.",
-      en: "AI interests me as a thinking tool, not as a marketing argument. At Explore, I explored natural language search on a POC whose foundations were later carried into production on OneSearch. In parallel, I built L'Interprète de Rêves entirely on my own, from idea to live product, to understand from the inside what it actually changes to design with AI day to day, not just talk about it.",
-    },
-    slugs: ['interprete-de-reves', 'poc-llm-carto'],
+    slugs: ['interprete-de-reves', 'vls2', 'tests-et-formulaires'],
   },
   {
     eyebrow: { fr: '04 : Organiser et structurer', en: '04: Organizing and structuring' },
@@ -60,13 +61,14 @@ const chapters: Chapter[] = [
     slugs: ['design-system'],
   },
   {
-    eyebrow: { fr: '05 : Chercher des concepts', en: '05: Searching for concepts' },
+    eyebrow: { fr: 'Pour aller plus loin', en: 'Going further' },
     title: { fr: 'Direction artistique', en: 'Art direction' },
     body: {
-      fr: "J'aime accompagner des structures qui démarrent et qui ont besoin d'une identité pour exister visuellement. À chaque fois, construire une image de marque à partir de rien, pour des entreprises qui grandissent vite.",
-      en: "I like supporting early-stage structures that need a visual identity to exist. Every time, building a brand image from nothing, for companies growing fast.",
+      fr: "En parallèle de mon poste de product designer, je suis aussi indépendante : identités visuelles, logos, illustrations. Une manière de garder la main sur la direction artistique pure, pour des structures qui démarrent et qui ont besoin d'exister visuellement.",
+      en: "Alongside my product design job, I also work independently: visual identities, logos, illustrations. A way to keep working on pure art direction, for early-stage structures that need a visual identity to exist.",
     },
     slugs: ['swaneo', 'tao', 'elements', 'qg-media-libre', 'uptilab', 'illustrations'],
+    secondary: true,
   },
 ];
 
@@ -74,6 +76,48 @@ function ChapterSection({ chapter, index, lang }: { chapter: Chapter; index: num
   const ref = useRef<HTMLDivElement>(null);
   const visible = useIntersection(ref as React.RefObject<Element>);
   const chapterProjects = chapter.slugs.map(getProject).filter(Boolean) as NonNullable<ReturnType<typeof getProject>>[];
+
+  if (chapter.secondary) {
+    return (
+      <section
+        ref={ref}
+        className="py-8 sm:py-10"
+        style={{
+          borderTop: '1px solid oklch(0.91 0.02 264)',
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'none' : 'translateY(16px)',
+          transition: 'opacity 0.6s ease, transform 0.6s ease',
+        }}
+      >
+        <div className="content-col max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+          <p
+            className="text-xs font-medium tracking-[0.18em] uppercase mb-2"
+            style={{ color: 'oklch(0.55 0.04 264)', fontFamily: 'DM Sans, sans-serif' }}
+          >
+            {chapter.eyebrow[lang]}
+          </p>
+          <h2
+            className="text-base sm:text-lg font-semibold mb-2"
+            style={{ fontFamily: 'Jost, sans-serif', color: 'oklch(0.25 0.02 264)', letterSpacing: '-0.01em' }}
+          >
+            {chapter.title[lang]}
+          </h2>
+          <p
+            className="text-xs sm:text-sm leading-relaxed max-w-xl mb-4"
+            style={{ color: 'oklch(0.45 0.03 264)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}
+          >
+            {chapter.body[lang]}
+          </p>
+
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-x-2 sm:gap-x-3 gap-y-4 sm:gap-y-5 mt-4">
+            {chapterProjects.map((p, i) => (
+              <ProjectCard key={p.slug} project={p} delay={Math.min(i + 1, 6)} />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section

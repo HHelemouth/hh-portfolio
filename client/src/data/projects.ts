@@ -35,6 +35,7 @@ export interface ProjectEntry {
   tags: string[];
   categories: FilterCategory[];
   isNew?: boolean;
+  comingSoon?: boolean;
   thumb?: string;
   thumbFit?: 'cover' | 'contain';
   cardSubtitle?: string;
@@ -105,6 +106,28 @@ export const projects: ProjectEntry[] = [
     color: '#8B4513',
   },
   {
+    slug: 'vls2',
+    label: 'VLS 2',
+    year: '2026',
+    isNew: true,
+    comingSoon: true,
+    tags: ['Product Building', 'Développement', 'React'],
+    categories: ['ia-product-building'],
+    cardSubtitle: 'Résultats & stats volley',
+    color: '#C2185B',
+  },
+  {
+    slug: 'tests-et-formulaires',
+    label: 'Tests & Formulaires UX',
+    year: '2026',
+    isNew: true,
+    comingSoon: true,
+    tags: ['Product Building', 'Développement', 'React'],
+    categories: ['ia-product-building'],
+    cardSubtitle: 'AttrakDiff · meCUE',
+    color: '#00897B',
+  },
+  {
     slug: 'poc-llm-carto',
     label: 'Exploration IA & Cartographie',
     year: '2025',
@@ -114,15 +137,6 @@ export const projects: ProjectEntry[] = [
     cardSubtitle: 'POC LLM · Recherche cartographique',
     cardIcon: 'map',
     color: '#1F6F5C',
-  },
-  {
-    slug: 'fioulreduc',
-    label: 'Fioulreduc',
-    year: '2023',
-    tags: ['UX', 'UI', 'Conversion'],
-    categories: ['produit-saas', 'ux-research'],
-    thumb: `${CDN}/fioulreduc_5c6f18e4.jpg`,
-    color: '#1A4FA0',
   },
   {
     slug: 'swaneo',

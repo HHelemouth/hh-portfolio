@@ -22,6 +22,8 @@ export function useIntersection(ref: React.RefObject<Element | null>) {
 export default function ProjectCard({ project, delay = 1 }: { project: ProjectEntry; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const visible = useIntersection(ref as React.RefObject<Element>);
+  const Wrapper: React.ElementType = project.comingSoon ? 'div' : Link;
+  const wrapperProps = project.comingSoon ? {} : { href: `/projet/${project.slug}` };
 
   return (
     <div
@@ -29,8 +31,8 @@ export default function ProjectCard({ project, delay = 1 }: { project: ProjectEn
       className={`fade-up fade-up-delay-${delay}`}
       style={{ opacity: visible ? 1 : 0, animationPlayState: visible ? 'running' : 'paused' }}
     >
-      <Link href={`/projet/${project.slug}`}>
-        <div className="project-card group">
+      <Wrapper {...(wrapperProps as any)}>
+        <div className="project-card group" style={project.comingSoon ? { cursor: 'default' } : undefined}>
           {project.thumb ? (
             <img
               src={project.thumb}
@@ -92,9 +94,25 @@ export default function ProjectCard({ project, delay = 1 }: { project: ProjectEn
                 new
               </span>
             )}
+            {project.comingSoon && (
+              <span
+                className="ml-2 text-xs px-1.5 py-0.5 rounded-sm"
+                style={{
+                  backgroundColor: 'oklch(0.6 0.02 264)',
+                  color: '#fff',
+                  fontSize: '0.6rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                  verticalAlign: 'middle',
+                }}
+              >
+                bientôt
+              </span>
+            )}
           </p>
         </div>
-      </Link>
+      </Wrapper>
     </div>
   );
 }
