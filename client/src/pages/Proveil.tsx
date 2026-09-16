@@ -17,6 +17,7 @@ const CHAPTERS: { id: string; label: Bi }[] = [
   { id: 'contexte', label: { fr: 'Contexte', en: 'Context' } },
   { id: 'hassenzahl', label: { fr: 'Test Hassenzahl', en: 'Hassenzahl test' } },
   { id: 'entretiens', label: { fr: "Entretiens d'usage", en: 'Usage interviews' } },
+  { id: 'enseignements', label: { fr: 'Enseignements', en: 'Key takeaways' } },
   { id: 'atelier', label: { fr: 'Atelier & Conception', en: 'Workshop & Design' } },
   { id: 'resultats', label: { fr: 'Résultats', en: 'Results' } },
 ];
@@ -280,6 +281,41 @@ export default function Proveil() {
             {accent(lang, {
               fr: "En résumé, Proveil offre une plétore d'éléments non pertinents au mal organisés au lieu de fournir l'essentiel nécessaire pour accompagner leur travail.",
               en: "In short, Proveil offered a flood of irrelevant or poorly organized elements instead of providing just what was needed to support their work.",
+            })}
+          </section>
+        )}
+
+        {/* ── ENSEIGNEMENTS ── */}
+        {active === 'enseignements' && (
+          <section>
+            {sectionTitle(lang, { fr: 'Ce que le test Hassenzahl et les entretiens ont fait ressortir', en: 'What the Hassenzahl test and the interviews surfaced' })}
+            {bodyText(lang, {
+              fr: "Quatre grands principes se sont dégagés pour optimiser le temps des utilisateurs, améliorer leur quotidien et gagner en productivité.",
+              en: "Four main principles emerged to optimize users' time, improve their daily work and gain productivity.",
+            })}
+
+            {h3(lang, { fr: 'Retirer le superflu', en: 'Remove the superfluous' })}
+            {bodyText(lang, {
+              fr: "Proveil portait plus de douze ans d'historique : des champs, des options et des écrans ajoutés au fil du temps, dont personne ne se souvenait vraiment de l'utilité. Le travail n'a pas été d'ajouter des fonctionnalités, mais d'identifier ce qui ne servait plus à rien et de le retirer. Chaque élément conservé a dû se justifier par un usage réel constaté en entretien ou en atelier, pas par habitude.",
+              en: "Proveil carried more than twelve years of history: fields, options and screens piled on over time, and nobody quite remembered why half of them were there. The work wasn't about adding features, it was about identifying what no longer served any purpose and removing it. Every element that stayed had to earn its place through an actual observed use, not habit.",
+            })}
+
+            {h3(lang, { fr: 'Automatiser', en: 'Automate' })}
+            {bodyText(lang, {
+              fr: "Certains champs pouvaient être remplis automatiquement à partir de données déjà connues du système, mais ce n'était pas toujours une évidence pour des équipes habituées à tout ressaisir manuellement. D'autres champs, comme les titres ou les descriptifs, peuvent désormais être générés directement par l'IA. Le témoignage du service Planification Urbaine le rend concret : titres, dates, zonage et liens sociétés sont automatisés, et le temps de traitement a quasiment été divisé par deux.",
+              en: "Some fields could simply be pre-filled from data the system already had, though that wasn't obvious to teams used to re-entering everything by hand. Other fields, like titles or descriptions, can now be generated directly by AI. The Urban Planning team's feedback makes the impact concrete: titles, dates, zoning and company links are now automated, and processing time has nearly been cut in half.",
+            })}
+
+            {h3(lang, { fr: 'Centraliser', en: 'Centralize' })}
+            {bodyText(lang, {
+              fr: "Avant la refonte, les utilisateurs jonglaient avec une multitude d'outils pour compenser les manques de Proveil : Teams pour partager une information, le navigateur pour une recherche externe, un calepin personnel pour prendre des notes, une capture d'écran informelle pour garder une trace. Centraliser, c'est ramener tous ces usages annexes dans l'interface elle-même, pour que le travail ne se disperse plus entre cinq outils différents.",
+              en: "Before the redesign, users were juggling a handful of extra tools to make up for what Proveil lacked: Teams to share information, the browser for external searches, a personal notebook for notes, informal screenshots to keep track of things. Centralizing means bringing all of that back into the interface itself, so work no longer spreads across five different tools.",
+            })}
+
+            {h3(lang, { fr: 'Normer', en: 'Standardize' })}
+            {bodyText(lang, {
+              fr: "Les documentalistes n'appartiennent pas tous à la même équipe, et chacune avait développé son propre jargon pour désigner les mêmes objets. Comme le disait une utilisatrice en entretien, « il n'y a pas de langage universel, c'est sa popotte interne ». La refonte a été l'occasion d'imposer une nomenclature et un wording communs à tous les flux traités, pour que l'outil parle le même langage partout, indépendamment de l'équipe qui l'utilise.",
+              en: "Documentation officers don't all belong to the same team, and each had developed its own jargon for the same objects. As one user put it during an interview, \"there's no universal language, it's everyone's own way of doing things.\" The redesign was the moment to impose a shared nomenclature and wording across every workflow touched, so the tool speaks the same language everywhere, regardless of which team is using it.",
             })}
           </section>
         )}
