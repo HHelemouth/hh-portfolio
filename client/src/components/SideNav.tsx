@@ -7,25 +7,9 @@
 import { Link, useLocation } from 'wouter';
 import TallyLogo from './TallyLogo';
 import LanguageSwitcher from './LanguageSwitcher';
+import { getProject } from '@/data/projects';
+import { chapters } from '@/data/chapters';
 import { useLanguage } from '@/lib/i18n';
-
-const projects = [
-  { slug: 'city-manager', label: 'City Manager', year: '2024', isNew: true },
-  { slug: 'design-system', label: 'Design System Multi-Produits', year: '2024' },
-  { slug: 'territoire-360', label: 'Territoire 360', year: '2024' },
-  { slug: 'elm-codata', label: 'ELM by Codata', year: '2024', isNew: true },
-  { slug: 'proveil', label: 'Proveil', year: '2023' },
-  { slug: 'interprete-de-reves', label: "L'Interprète de Rêves", year: '2025', isNew: true },
-  { slug: 'poc-llm-carto', label: 'Exploration IA & Cartographie', year: '2025', isNew: true },
-  { slug: 'fioulreduc', label: 'Fioulreduc', year: '2023' },
-  { slug: 'swaneo', label: 'Swaneo', year: '2023' },
-  { slug: 'qg-media-libre', label: 'QG — Média Libre', year: '2020' },
-  { slug: 'appvizer', label: 'Appvizer', year: '2020' },
-  { slug: 'uptilab', label: 'Uptilab', year: '2017' },
-  { slug: 'elements', label: 'Elements', year: '2020' },
-  { slug: 'tao', label: 'TAO', year: '2019' },
-  { slug: 'illustrations', label: 'Illustrations', year: '2020' },
-];
 
 export default function SideNav() {
   const [location] = useLocation();
@@ -57,7 +41,7 @@ export default function SideNav() {
 
       <Link
         href="/projets"
-        className="text-sm mb-3 py-1.5 px-2 -mx-2 rounded-sm transition-colors"
+        className="text-sm mb-4 py-1.5 px-2 -mx-2 rounded-sm transition-colors"
         style={{
           fontFamily: 'DM Sans, sans-serif',
           color: location === '/projets' ? 'oklch(0.45 0.22 264)' : 'oklch(0.4 0.03 264)',
@@ -68,48 +52,66 @@ export default function SideNav() {
         {lang === 'en' ? 'All projects ↗' : 'Tous les projets ↗'}
       </Link>
 
-      {/* Liste des projets */}
-      <ul className="flex flex-col gap-1 flex-1 overflow-y-auto">
-        {projects.map((p) => {
-          const isActive = location === `/projet/${p.slug}`;
-          return (
-            <li key={p.slug}>
-              <Link
-                href={`/projet/${p.slug}`}
-                className="flex items-center justify-between py-1.5 px-2 rounded-sm transition-colors group"
-                style={{
-                  backgroundColor: isActive ? 'oklch(0.94 0.04 264)' : 'transparent',
-                  color: isActive ? 'oklch(0.45 0.22 264)' : 'oklch(0.13 0.02 264)',
-                }}
-              >
-                <span
-                  className="text-sm leading-tight"
-                  style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: isActive ? 500 : 400 }}
-                >
-                  {p.label}
-                  {p.isNew && (
-                    <span
-                      className="ml-1.5 text-xs px-1 py-0.5 rounded-sm"
-                      style={{
-                        backgroundColor: 'oklch(0.45 0.22 264)',
-                        color: '#fff',
-                        fontSize: '0.6rem',
-                        fontWeight: 600,
-                        letterSpacing: '0.05em',
-                        textTransform: 'uppercase',
-                        verticalAlign: 'middle',
-                      }}
-                    >
-                      new
-                    </span>
-                  )}
-                </span>
+      {/* Liste des projets, groupée par chapitre de la home */}
+      <div className="flex flex-col gap-4 flex-1 overflow-y-auto">
+        {chapters.map((chapter) => {
+          const chapterProjects = chapter.slugs
+            .map(getProject)
+            .filter((p) => p && !p.comingSoon) as NonNullable<ReturnType<typeof getProject>>[];
+          if (chapterProjects.length === 0) return null;
 
-              </Link>
-            </li>
+          return (
+            <div key={chapter.title.fr}>
+              <span
+                className="block text-[0.65rem] font-medium tracking-widest uppercase mb-1.5"
+                style={{ color: 'oklch(0.6 0.03 264)', fontFamily: 'DM Sans, sans-serif' }}
+              >
+                {chapter.title[lang]}
+              </span>
+              <ul className="flex flex-col gap-1">
+                {chapterProjects.map((p) => {
+                  const isActive = location === `/projet/${p.slug}`;
+                  return (
+                    <li key={p.slug}>
+                      <Link
+                        href={`/projet/${p.slug}`}
+                        className="flex items-center justify-between py-1.5 px-2 rounded-sm transition-colors group"
+                        style={{
+                          backgroundColor: isActive ? 'oklch(0.94 0.04 264)' : 'transparent',
+                          color: isActive ? 'oklch(0.45 0.22 264)' : 'oklch(0.13 0.02 264)',
+                        }}
+                      >
+                        <span
+                          className="text-sm leading-tight"
+                          style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: isActive ? 500 : 400 }}
+                        >
+                          {p.label}
+                          {p.isNew && (
+                            <span
+                              className="ml-1.5 text-xs px-1 py-0.5 rounded-sm"
+                              style={{
+                                backgroundColor: 'oklch(0.45 0.22 264)',
+                                color: '#fff',
+                                fontSize: '0.6rem',
+                                fontWeight: 600,
+                                letterSpacing: '0.05em',
+                                textTransform: 'uppercase',
+                                verticalAlign: 'middle',
+                              }}
+                            >
+                              new
+                            </span>
+                          )}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           );
         })}
-      </ul>
+      </div>
 
       {/* CV & Contact en bas */}
       <div className="mt-6 pt-6 flex flex-col gap-2" style={{ borderTop: '1px solid oklch(0.91 0.02 264)' }}>
