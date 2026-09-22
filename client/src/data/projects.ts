@@ -121,7 +121,6 @@ export const projects: ProjectEntry[] = [
     label: 'Tests & Formulaires UX',
     year: '2026',
     isNew: true,
-    comingSoon: true,
     tags: ['Product Building', 'Développement', 'React'],
     categories: ['ia-product-building'],
     cardSubtitle: 'AttrakDiff · meCUE',
